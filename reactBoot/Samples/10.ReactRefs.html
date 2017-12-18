@@ -1,0 +1,107 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>React.js - React Event Handling</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://unpkg.com/babel-standalone@6/babel.js"></script>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <style type="text/css">
+        div.note {
+            background-color: yellowgreen;
+            color: #000;
+            width: 200px;
+            height: 200px;
+            position: relative;
+            padding: 10px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        div.note div.actions {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            height: 40px;
+            width: 100%;
+        }
+
+        div.note div.actions > button {
+            margin: 4px;
+            font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        class NoteComponent extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {editing: false};
+                // This binding is necessary to make `this` work in the callback
+                this.editHandler = this.editHandler.bind(this);
+                this.deleteHandler = this.deleteHandler.bind(this);
+                this.saveHandler = this.saveHandler.bind(this);
+            }
+            // Note: Once the state is changed, the component will render again.
+            // i.e. The render() lifecycle hook will be invoked
+            editHandler() {
+                const state = {editing: true};
+                this.setState(state);
+            }
+            deleteHandler() {
+                const state = {editing: false};
+                this.setState(state);
+            }
+            saveHandler() {
+                // Access the reference to the `textarea` DOM element
+                const textElement = this.textElement;
+                alert(textElement.value);
+                // Change the state
+                const state = {editing: false};
+                this.setState(state);
+            }
+            renderEditor() {
+                return (
+                    <div className='note'>
+                        <textarea
+                            ref={(element) => {this.textElement = element;}}></textarea>
+                        <div className='actions'>
+                            <button onClick={this.saveHandler}>Save</button>
+                        </div>
+                    </div>
+                );
+            }
+            renderDisplay() {
+                return (
+                    <div className='note'>
+                        <p>{this.props.noteText}</p>
+                        <div className='actions'>
+                            <button onClick={this.editHandler}>Edit</button>
+                            <button onClick={this.deleteHandler}>Delete</button>
+                        </div>
+                    </div>
+                );
+            }
+            render() {
+                if(this.state.editing) {
+                    return this.renderEditor();
+                } else {
+                    return this.renderDisplay();
+                }
+            }
+        };
+        ReactDOM.render(<NoteComponent noteText="This is a note"></NoteComponent>, 
+            document.getElementById('root')
+            );
+    </script>
+</body>
+
+</html>
