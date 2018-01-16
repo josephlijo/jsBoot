@@ -3,6 +3,8 @@ function checkType(input) {
 }
 
 // null is of type "object" in JavaScript
+// NaN is of type "number"
+
 // Other types are:
 // object
 // function 
@@ -27,3 +29,4 @@ checkType(foo); // <-------------- undefined ; if the below is present.
 var foo;
 checkType(null); // <-------------- object
 checkType(Symbol(88));
+checkType(NaN); // <-------------- number 
