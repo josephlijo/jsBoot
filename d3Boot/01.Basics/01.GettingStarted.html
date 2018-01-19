@@ -8,6 +8,19 @@
   <!-- Local copy -->
   <script src="../_lib/d3.min.js"></script>
   <!-- From d3js.org -->
-  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <!-- <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script> -->
+  <div class="container">
+    <div>John</div>
+    <div>Lewis</div>
+    <div>Smith</div>
+    <div>Mark</div>
+    <div>Spencers</div>
+  </div>
+  <script>
+      d3.select("div.container > div:first-child")
+        .html("<b>Okay John</b>");
+      d3.select("div.container > div:last-child")
+        .text("Fish and Chips");
+  </script>
 </body>
 </html>
