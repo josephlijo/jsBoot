@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>React.js - React Component using Class</title>
+    <title>React.js - React Component using React.Component</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -17,19 +17,19 @@
     <div id="root"></div>
 
     <script type="text/babel">
-            var MyComponent = React.createClass({ // Create class is deprecated
-                render() {
-                    return <div>
-                        <h1>Hello, React</h1>
-                        <p>I am a React Component</p>
-                    </div>
-                }
-            });
-            ReactDOM.render(
-                <MyComponent />, 
-                document.getElementById('root')
-             ); 
-        </script>
+        class MyComponent extends React.Component{
+            render() {
+                return <div>
+                    <h1>Hello, React</h1>
+                    <p>I am a React Component</p>
+                </div>
+            }
+        };
+        ReactDOM.render(
+            <MyComponent />, 
+            document.getElementById('root')
+        ); 
+    </script>
 </body>
 
 </html>
