@@ -16,7 +16,7 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
-        code {
+        a {
             background-color: #282c34;
             color: #FFF;
             padding: 20px;
@@ -36,21 +36,16 @@
                 return <div>
                     <h3>{this.props.header}</h3>
                     <p>{this.props.instructions}</p>
-                    <code>{this.props.code}</code>
+                    <a href={this.props.link}>{this.props.linkLabel}</a>
                     <hr/>
                 </div>
             }
         };
         ReactDOM.render(<div>
-                <MyComponent header="Installing the package" 
-                             instructions="Run the following code:" 
-                             code="npm install -g create-react-app" />
-                <MyComponent header="Creating the application" 
-                             instructions="To create an app named `my-app`, run:" 
-                             code="create-react-app my-app" />
-                <MyComponent header="Running the application" 
-                             instructions="Navigate to the folder `my-app` and run the below code which will boot up the application at the address http://localhost:3000/" 
-                             code="npm start" />
+                <MyComponent header="Facebook" 
+                             instructions="Build native mobile apps using JavaScript and React:" 
+                             link="https://facebook.github.io/react-native/"
+                             linkLabel="React-native Facebook"/>
             </div>, 
             document.getElementById('root')
         );

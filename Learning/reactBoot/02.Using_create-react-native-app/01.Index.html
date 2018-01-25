@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>React.js - create-react-app</title>
-    <meta name="description" content="create-react-app">
+    <title>React.js - create-react-native-app</title>
+    <meta name="description" content="create-react-native-app">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <script src="https://unpkg.com/babel-standalone@6/babel.js"></script>
@@ -28,8 +28,11 @@
 </head>
 
 <body>
+    <div>
+        Alternatively Refer: <a href="https://facebook.github.io/react-native/docs/getting-started.html">Getting Started with create-react-native-app</a>
+    </div>
     <div id="root"></div>
-
+    
     <script type="text/babel">
         class MyComponent extends React.Component{
             render() {
@@ -44,12 +47,12 @@
         ReactDOM.render(<div>
                 <MyComponent header="Installing the package" 
                              instructions="Run the following code:" 
-                             code="npm install -g create-react-app" />
+                             code="npm install -g create-react-native-app" />
                 <MyComponent header="Creating the application" 
-                             instructions="To create an app named `my-app`, run:" 
-                             code="create-react-app my-app" />
+                             instructions="To create an app named `MyAwesomeProject`, run:" 
+                             code="create-react-native-app MyAwesomeProject" />
                 <MyComponent header="Running the application" 
-                             instructions="Navigate to the folder `my-app` and run the below code which will boot up the application at the address http://localhost:3000/" 
+                             instructions="Navigate to the `MyAwesomeProject` folder and run the below code which will start a development server for you, and print a QR code in your terminal." 
                              code="npm start" />
             </div>, 
             document.getElementById('root')
