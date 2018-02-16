@@ -82,8 +82,11 @@ Now we are making it more closer to natural language type - which is more nicer 
 2. `something.should.equal...`
 3. `something.should.have...`
 
-> *To make it work like that `should` adds itself to `Object.prototype`*
+> *To make it work like that, `should` adds itself to `Object.prototype`*; As a result of this, even if we `require` *should* in just one test file, it would be accessible everywhere since it is already included in `Object.prototype`
+
 So, the *assertions* are like *authorized.should.be.true* which translates well in business [Gherkin](https://en.wikipedia.org/wiki/Cucumber_(software)#Gherkin_language) language
 - To use `should`, require it using `var should = require('chai').should();`; 
-*Note*:  `should()` is a function; call it to make it add itself to *Object.prototype* 
-- Change `expect(isAuth).to.be.true;` to `isAuth.should.be.true;` and run `npm test` to see the results. Both works the same, but use `expect` / `should` based on how the business care reads out loud and meaningul.
+*Note*: `should()` is a function; call it to make it add itself to *Object.prototype*; 
+*++ Note*: By doing so, we make `should` available in all `objects` no matter which file they live.
+
+- Change `expect(isAuth).to.be.true;` to `isAuth.should.be.true;` and run `npm test` (or `mocha './test/**/*.spec.js'`) to see the results. Both works the same, but, use `expect` / `should` based on how the business case reads out loud and meaningful.
