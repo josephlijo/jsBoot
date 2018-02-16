@@ -26,4 +26,7 @@ Note: NVM doesn't support Windows.
 - Check the version - `mocha --version`
 - Install locally in the new project created - `npm install --save mocha`
 - Create a folder `test`, and then create a file `index.spec.js`. Check the folder - `01.FirstMochaTest\test` for details about the test. 
-- Type `mocha` and it will look for the test directory and run the things in it.
+- Type `mocha` and it will look for the `test` directory and run the things in it.
+- Add more tests. Check the `controllers` folders to see how to go with testing a `controller`. 
+- To run all tests in `test` folder, use the command `mocha './test/**/*.spec.js'`
+- We can further *automate* this by moving this command to the package.json file by changing the `scripts.test` to `"test": "mocha ./test/**/*.spec.js"`; Now to run the test, do `npm test`
