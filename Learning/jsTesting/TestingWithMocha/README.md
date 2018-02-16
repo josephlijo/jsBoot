@@ -40,12 +40,14 @@ Note: NVM doesn't support Windows.
 - Inorder to test async, pass in a callback to the definition like `it('Should return false if not authorized', function (done)` and call the callback function (`done()`) after assert. If we don't call the callback to the `it`, the test will run in sequence without taking care of the event loop and it will automatically succeed.  
 Check `auth.controller.spec.js` for more details.
 - Default timeout of mocha is *2000 ms*. To handle timeouts of more, we can change the mocha context inside the callback of `it` using `this.timeout(2500)`. If we don't change the `timeout` we will get the error: 
-> Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure "done()" is called; if returning a Promise, ensure it resolves. 
+> Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure "done()" is called; if returning a Promise, ensure it resolves.
+
 Note: If we are using arrow functions, then we cannot use the `this` context inside. If we use arrow function, `this` get bound to the lexical context instead of the call path. 
 So, Mocha suggests to **not use arrow functions**
 - `before` and `beforeEach` lifecycle hooks are useful to be in line with `DRY` principle. 
 `before` can be used for a global setup (once) and `beforeEach` can be used for a *each test setup*  - i.e. inside a `describe` for all it's `it`s 
-This is useful when we have to setup something before we run the tests. 
+This is useful when we have to setup something before we run the tests.
+
 Note: If `beforeEach` is outside of all `describe`s, it is going to run it for all tests, no matter the test are in different files. So, make sure that your `beforeEach` is specific to the *description*. 
 
 **F.I.R.S.T principles, pending tests (skip and only):**
@@ -68,9 +70,20 @@ We can now change it to:
 1. `expect(something).to.be...`
 2. `expect(something).to.equal...`
 3. `expect(something).to.have...`
+
 Now we are making it more closer to natural language type - which is more nicer way of BDD style. 
 - Go to `./test/controllers/auth.controller.spec.js` and pull in `expect` using `var expect = require('chai').expect;`
 - We can now change the code from `assert.equal(true, isAuth);` to `expect(isAuth).to.be.true;` which makes it more readable. 
 
 **Natural language asserts using `should`**
-- `expect..` is good, but, `something.should...` makes it more natural. The business cases can be read along those lines with `should`. 
+
+- `expect..` is good, but, `something.should...` makes it more natural. The business cases can be read along those lines with `should`. It is more *obvious* with `should`. Translating the business case like below makes it more readable in terms of Behaviour: 
+1. `something.should.be...`
+2. `something.should.equal...`
+3. `something.should.have...`
+
+> *To make it work like that `should` adds itself to `Object.prototype`*
+So, the *assertions* are like *authorized.should.be.true* which translates well in business [Gherkin](https://en.wikipedia.org/wiki/Cucumber_(software)#Gherkin_language) language
+- To use `should`, require it using `var should = require('chai').should();`; 
+*Note*:  `should()` is a function; call it to make it add itself to *Object.prototype* 
+- Change `expect(isAuth).to.be.true;` to `isAuth.should.be.true;` and run `npm test` to see the results. Both works the same, but use `expect` / `should` based on how the business care reads out loud and meaningul.

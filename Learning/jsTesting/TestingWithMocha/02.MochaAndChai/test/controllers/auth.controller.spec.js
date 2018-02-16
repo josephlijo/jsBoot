@@ -3,6 +3,7 @@
 var assert = require('assert');
 var authController = require('../../controllers/auth.controller');
 var expect = require('chai').expect;
+var should = require('chai').should();
 
 describe('Auth Controller', function () {
 
@@ -19,7 +20,7 @@ describe('Auth Controller', function () {
         });
         it('Should return true if authorized', function () {
             var isAuth = authController.isAuthorized('admin');
-            expect(isAuth).to.be.true;
+            isAuth.should.be.true;
         });
     });
 
