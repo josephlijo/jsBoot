@@ -1,0 +1,27 @@
+{
+  "name": "01.firstmochatest",
+  "version": "1.0.0",
+  "description": "Installing and getting started with Mocha",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ljnotes/jsBoot.git"
+  },
+  "keywords": [
+    "testing",
+    "mocha",
+    "javascript"
+  ],
+  "author": "ljnotes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ljnotes/jsBoot/issues"
+  },
+  "homepage": "https://github.com/ljnotes/jsBoot#readme",
+  "dependencies": {
+    "mocha": "^5.0.1"
+  }
+}
