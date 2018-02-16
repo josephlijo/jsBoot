@@ -61,7 +61,7 @@ Note: If `beforeEach` is outside of all `describe`s, it is going to run it for a
 
 *Reference code: 02.MochaAndChai*
 
-**Installing Chai and getting started**
+**Installing Chai and using `expect`**
 - Run `npm install --save chai` to use [Chai](http://chaijs.com/). 
 - Why we need Chai? With `mocha` we were using this BDD style for defining our tests with `describe` and `it`, but `assert` is little clunky - we have to **expect** something; Chai brings in that - to make our test code more BDD style.
 We can now change it to: 
@@ -71,3 +71,6 @@ We can now change it to:
 Now we are making it more closer to natural language type - which is more nicer way of BDD style. 
 - Go to `./test/controllers/auth.controller.spec.js` and pull in `expect` using `var expect = require('chai').expect;`
 - We can now change the code from `assert.equal(true, isAuth);` to `expect(isAuth).to.be.true;` which makes it more readable. 
+
+**Natural language asserts using `should`**
+- `expect..` is good, but, `something.should...` makes it more natural. The business cases can be read along those lines with `should`. 
