@@ -87,8 +87,8 @@ Now we are making it more closer to natural language type - which is more nicer 
 So, the *assertions* are like *authorized.should.be.true* which translates well in business [Gherkin](https://en.wikipedia.org/wiki/Cucumber_(software)#Gherkin_language) language
 - To use `should`, require it using `var should = require('chai').should();`
 
-> *Note*: `should()` is a function; call it to make it add itself to *Object.prototype*;
+> **Note**: `should()` is a function; call it to make it add itself to *Object.prototype*;
 
-> *++ Note*: By doing so, we make `should` available in all `objects` no matter which file they live.
+> **Note**: By doing so, we make `should` available in all `objects` no matter which file they live.
 
 - Change `expect(isAuth).to.be.true;` to `isAuth.should.be.true;` and run `npm test` (or `mocha './test/**/*.spec.js'`) to see the results. Both works the same, but, use `expect` / `should` based on how the business case reads out loud and meaningful.
