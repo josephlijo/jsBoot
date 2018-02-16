@@ -5,14 +5,19 @@ var authController = require('../../controllers/auth.controller');
 
 describe('Auth Controller', function () {
 
+    // `beforeEach` lifecycle hook
+    beforeEach(function () {
+        authController.setRoles(['admin', 'user']);
+    });
+
     // We can nest `describes`
     describe('Is Authorized', function () {
         it('Should return false if not authorized', function () {
-            var expected = authController.isAuthorized(['admin', 'user'], 'guest');
+            var expected = authController.isAuthorized('guest');
             assert.equal(false, expected);
         });
         it('Should return true if authorized', function () {
-            var expected = authController.isAuthorized(['admin', 'user'], 'admin');
+            var expected = authController.isAuthorized('admin');
             assert.equal(true, expected);
         });
     });
@@ -23,11 +28,12 @@ describe('Auth Controller', function () {
         // Default timeout of mocha is `2000 ms`
         it('Should return false if not authorized', function (done) {
             this.timeout(2500);
-            authController.isAuthorizedAsync(['admin', 'user'], 'guest',
+            authController.isAuthorizedAsync('guest',
                 function (isAuth) {
                     assert.equal(false, isAuth);
                     done();
                 });
         });
+        it('Should work when role is correct');
     });
 });
