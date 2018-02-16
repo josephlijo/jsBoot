@@ -53,6 +53,6 @@ Note: If `beforeEach` is outside of all `describe`s, it is going to run it for a
 *Reference code: 01.FirstMochaTest*
 
 - **F.I.R.S.T** principle in testing is respected by Mocha; For example, `beforeEach` for *Independent / Isolated* if we use it correctly; *Self Validating* if we put in more descriptions when we write the code; `beforeEach` function can be provided more parameters which can be used to identify where the test are failing if it fails. 
-- **Pending tests** can be included by providing `it('Should work when role is correct')` without any additional params and we can go back and write those when we are ready to. The *pending* test would be shown towards the summary section. Doing so, we can remove **TODO://** comments. 
+- **Pending tests** can be included by providing `it('Should work when role is correct')` without any additional params and we can go back and write those when we are ready to. The *pending* test would be shown towards the summary section. Doing so, we can avoid using **TODO://** comments. 
 - Specific test can be run using `describe.only` and `it.only` to isolate tests; this is useful to test specific tests / avoid long running tests. 
 - Specific tests can be skipped using `describe.skip` and `it.skip`. The skipped tests will show up in the *pending test* section. We can also use `this.skip` inside `it` to do some environment specific test for example. 
