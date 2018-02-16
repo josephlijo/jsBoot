@@ -56,3 +56,18 @@ Note: If `beforeEach` is outside of all `describe`s, it is going to run it for a
 - **Pending tests** can be included by providing `it('Should work when role is correct')` without any additional params and we can go back and write those when we are ready to. The *pending* test would be shown towards the summary section. Doing so, we can avoid using **TODO://** comments. 
 - Specific test can be run using `describe.only` and `it.only` to isolate tests; this is useful to test specific tests / avoid long running tests. 
 - Specific tests can be skipped using `describe.skip` and `it.skip`. The skipped tests will show up in the *pending test* section. We can also use `this.skip` inside `it` to do some environment specific test for example. 
+
+## Using BDD style assertions, using Chai
+
+*Reference code: 02.MochaAndChai*
+
+**Installing Chai and getting started**
+- Run `npm install --save chai` to use [Chai](http://chaijs.com/). 
+- Why we need Chai? With `mocha` we were using this BDD style for defining our tests with `describe` and `it`, but `assert` is little clunky - we have to **expect** something; Chai brings in that - to make our test code more BDD style.
+We can now change it to: 
+1. `expect(something).to.be...`
+2. `expect(something).to.equal...`
+3. `expect(something).to.have...`
+Now we are making it more closer to natural language type - which is more nicer way of BDD style. 
+- Go to `./test/controllers/auth.controller.spec.js` and pull in `expect` using `var expect = require('chai').expect;`
+- We can now change the code from `assert.equal(true, isAuth);` to `expect(isAuth).to.be.true;` which makes it more readable. 
