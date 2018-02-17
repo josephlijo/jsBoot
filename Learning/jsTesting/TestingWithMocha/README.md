@@ -113,4 +113,13 @@ In essence we cannot use `var aNull = null; aNull.should...`
 - Install `chai-as-promised` using the command `npm install --save chai-as-promised` 
 - Create a function which returns [`Promise`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise), for example, *isAuthorizedPromise*
 Check *02.MochaAndChai\controllers\auth.controller.js* for more details.
-- `should.eventually.be...` checks could be used to test promise. Before that, we need to `var chai = require('chai')` and `var chaiAsPromised = require('chai-as-promised')` and extend `chai` to be used with `chai-as-extended` via `chai.use(chaiAsPromised)`. We need to also append `should` via `chai.should()`
+- We need to *return* `should.eventually.be...` checks for Mocha to test promise. 
+Before that, we need to require `var chai = require('chai')` and `var chaiAsPromised = require('chai-as-promised')` and then extend `chai` to be used with `chai-as-extended` via `chai.use(chaiAsPromised)`. 
+We need to also append `should` via `chai.should()`
+
+## Test Doubles - Spys, Stubs, Mocks, Fake, Dummy
+
+**References:**
+- [Mocks aren't Stubs](https://martinfowler.com/articles/mocksArentStubs.html) by Martin Fowler
+- [Testing JavaScript for Node.js with Mocha](https://app.pluralsight.com/library/courses/mocha-javascript-testing-nodejs/table-of-contents) by Jonathan Mills
+- [Test Doubles](http://xunitpatterns.com/Test%20Double.html) by Gerard Meszaros
