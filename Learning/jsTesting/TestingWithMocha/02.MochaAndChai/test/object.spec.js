@@ -1,3 +1,5 @@
+var should = require('chai').should();
+
 describe('Object Testing', function () {
     it.skip('Object Equal', function () {
         var objA = { name: "Foo", role: 1 };
@@ -12,5 +14,9 @@ describe('Object Testing', function () {
     it('Object Property key-value Test', function () {
         var objA = { name: "Foo", role: 1 };
         objA.should.have.property('name').equal("Foo"); // Note: Equal check is case sensitive
+    });
+    it('Check null', function(){
+        var iAmNull = null;
+        should.not.exist(iAmNull);
     })
 });

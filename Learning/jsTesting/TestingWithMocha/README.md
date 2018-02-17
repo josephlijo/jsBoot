@@ -100,3 +100,10 @@ So, the *assertions* are like *authorized.should.be.true* which translates well 
 - We can check objects (for example, *obj*) using `obj.should.equal` for reference check and `obj.should.deep.equal` for object value check 
 - Properties and values of an object (for example, *obj*) can also be checked using `obj.should.have.property('property-name')` and `obj.should.have.property('property-name').equal('property-value')`
 - More details on [Chai BDD](http://chaijs.com/api/bdd/)
+
+**Testing `null`s**
+
+- `typeof null` is an `object` in JavaScript, but we cannot deal with `null` as a real object; in essence we cannot add properties and methods to it and so `should` will not work with `null`s. 
+In essence we cannot use `var iAmNull = null; iAmNull.should...` 
+- To make it work, we could use `should` object to be used as `should.not.exist(iAmNull);` - Here it might make sense to use `expect` probably; it is the choice of the application and the stake holders of it. 
+> **Note**: Here we would need to *require* null in the file by using `var should = require('chai').should();` since we are no more working with *Object.prototype*, but using *should* object. 
