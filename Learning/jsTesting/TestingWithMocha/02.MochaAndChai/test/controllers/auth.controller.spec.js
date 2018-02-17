@@ -4,6 +4,12 @@ var assert = require('assert');
 var authController = require('../../controllers/auth.controller');
 var expect = require('chai').expect;
 var should = require('chai').should();
+// For using `promise`
+var chai = require('chai');
+var chaiAsPromised = require('chai-as-promised');
+// using middleware syntax add chai-as-promised to chai
+chai.use(chaiAsPromised);
+chai.should();
 
 describe('Auth Controller', function () {
 
@@ -38,4 +44,11 @@ describe('Auth Controller', function () {
         });
         it('Should work when role is correct');
     });
+
+    describe('Is Authorized Promise', function () {
+        it('Should return false if not authorized', function () {
+            return authController.isAuthorizedPromise('guest').should.eventually.be.false;
+        });
+    });
 });
+

@@ -10,7 +10,7 @@ function AuthController() {
 
     function isAuthorizedAsync(roleToCheck, callback) {
         setTimeout(() => {
-            callback(isAuthorized(roles, roleToCheck));
+            callback(isAuthorized(roleToCheck));
         }, 2100);
     }
 

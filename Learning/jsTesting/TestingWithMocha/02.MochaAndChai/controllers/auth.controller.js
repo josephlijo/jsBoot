@@ -10,14 +10,23 @@ function AuthController() {
 
     function isAuthorizedAsync(roleToCheck, callback) {
         setTimeout(() => {
-            callback(isAuthorized(roles, roleToCheck));
+            callback(isAuthorized(roleToCheck));
         }, 2100);
+    }
+
+    function isAuthorizedPromise(roleToCheck) {
+        return new Promise(function (resolve) {
+            setTimeout(() => {
+                resolve(isAuthorized(roleToCheck));
+            }, 0);
+        });
     }
 
     return {
         setRoles,
         isAuthorized,
-        isAuthorizedAsync
+        isAuthorizedAsync,
+        isAuthorizedPromise
     }
 }
 

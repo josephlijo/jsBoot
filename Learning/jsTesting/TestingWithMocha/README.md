@@ -103,9 +103,14 @@ So, the *assertions* are like *authorized.should.be.true* which translates well 
 
 **Testing `null`s**
 
-- `typeof null` is an `object` in JavaScript, but we cannot deal with `null` as a real object; in essence we cannot add properties and methods to it and so `should` will not work with `null`s. 
+- `typeof null` is an `object` in JavaScript, but we cannot deal with `null` as a real object; i.e. we cannot add properties and methods to it and so `should` will not work with `null`s. 
 In essence we cannot use `var aNull = null; aNull.should...` 
-- To make it work, we could use `should` object to be used as `should.not.exist(aNull);` - Here it might make sense to use `expect` probably; it is the choice of the application and the stake holders of it. 
+- To make it work, we could use `should` object as `should.not.exist(aNull);` - Here it might make sense to use `expect` probably; it is the choice of the application and the stake holders of it. 
 > **Note**: Here we would need to *require* `should` in the file by using `var should = require('chai').should();` since we are no more working with *Object.prototype*, but using *should* object. 
 
 **Testing Promises**
+
+- Install `chai-as-promised` using the command `npm install --save chai-as-promised` 
+- Create a function which returns [`Promise`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise), for example, *isAuthorizedPromise*
+Check *02.MochaAndChai\controllers\auth.controller.js* for more details.
+- `should.eventually.be...` checks could be used to test promise. Before that, we need to `var chai = require('chai')` and `var chaiAsPromised = require('chai-as-promised')` and extend `chai` to be used with `chai-as-extended` via `chai.use(chaiAsPromised)`. We need to also append `should` via `chai.should()`
