@@ -16,7 +16,7 @@ describe('Object Testing', function () {
         objA.should.have.property('name').equal("Foo"); // Note: Equal check is case sensitive
     });
     it('Check null', function(){
-        var iAmNull = null;
-        should.not.exist(iAmNull);
+        var aNull = null;
+        should.not.exist(aNull);
     })
 });
