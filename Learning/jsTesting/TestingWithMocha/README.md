@@ -92,3 +92,11 @@ So, the *assertions* are like *authorized.should.be.true* which translates well 
 > **Note**: By doing so, we make `should` available in all `objects` no matter which file they live.
 
 - Change `expect(isAuth).to.be.true;` to `isAuth.should.be.true;` and run `npm test` (or `mocha './test/**/*.spec.js'`) to see the results. Both works the same, but, use `expect` / `should` based on how the business case reads out loud and meaningful.
+
+**Testing Objects**
+
+*Reference code: 02.MochaAndChai\test\object.spec.js*
+
+- We can check objects (for example, *obj*) using `obj.should.equal` for reference check and `obj.should.deep.equal` for object value check 
+- Properties and values of an object (for example, *obj*) can also be checked using `obj.should.have.property('property-name')` and `obj.should.have.property('property-name').equal('property-value')`
+- More details on [Chai BDD](http://chaijs.com/api/bdd/)
