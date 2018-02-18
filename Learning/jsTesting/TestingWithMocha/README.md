@@ -154,3 +154,4 @@ For example, continuing with the credit check example, we don't give canned answ
 
 - We saw that `sinon.spy()` variations can be used to create (fake) or spy a function. But sometimes, we need to replace a function (stub it) - for example, to avoid call to the database or network call. 
 - `sinon.stub()` can be used to stub (replace) a function: `sinon.stub(obj, 'functionName')`; doing so, we can control the behavior of the function directly and make sure that it is working the way we want it to work, we can return things, throw exceptions etc. to control the behaviour. 
+- Different variations like `sinon.stub(user, 'isAuthorized').returns(true)` or `sinon.stub(user, 'isAuthorized').throws()` can be used to test differnt behaviours.
