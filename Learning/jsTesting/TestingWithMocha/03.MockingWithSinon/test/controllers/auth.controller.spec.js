@@ -22,6 +22,8 @@ describe('Auth Controller', function () {
             res.render = sinon.spy(); // Spy
             authController.getIndex(req, res);
             res.render.calledOnce.should.be.true;
+            // We can check the arguments 
+            res.render.firstCall.args[0].should.equal('index');
         });
     });
 });
