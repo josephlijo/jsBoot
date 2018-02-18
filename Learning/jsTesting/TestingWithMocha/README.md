@@ -145,4 +145,6 @@ For example, continuing with the credit check example, we don't give canned answ
 *Reference code: 03.MockingWithSinon*
 
 - Install Sinon - `npm install --save sinon`
-- 
+- If we have to test a function which takes in objects, we have to somehow *fake* it to test it. For example, `function(request, response) { response.render ('something');}`; Here we could pass in dummy objects `{}` but then it would mean just the sake of using it, and we are not testing it. 
+- `sinon.spy()` gives us a fake function; `var fakeFunc = sinon.spy()` and we could use this to track execution (*spy*). We can *spy* it like - *is the function executed*, *how many times it is executed* etc. 
+- Let's bring in Sinon using `var sinon = require('sinon');` and then spy the function *render* in our fake *response* object using `var response = {}; response.render = sinon.spy();`. Now we could make use of the functions from `spy` like `calledOnce`, `calledTwice` etc. For example: `response.render.calledOnce.should.be.true`
