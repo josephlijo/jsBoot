@@ -11,3 +11,4 @@ This repository holds samples to get started with JavaScript, JavaScript librari
 * Visual Studio Code for development
 * git
 * Webpack
+* Mocha, Chai, Sinon

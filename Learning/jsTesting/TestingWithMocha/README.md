@@ -140,7 +140,7 @@ For example, *stubbing the credit check system*, but *recording how many times t
 - `Mocks`: Mimic the behaviour of a dependent object of our SUT *in all ways*. We *don't stub it to give canned answers, but we program it in a way to expect all we could* and then test against it - *this pre-programming is to cover all cases we should expect*. 
 For example, continuing with the credit check example, we don't give canned answers, say, 10 or -10, but all cases we need to take care of - *negative, positive, exception, interruption*, anything - which our system is dealing with. 
 
-**Mocking using [`Sinon`](http://sinonjs.org/)**
+**Faking and Spying using [`Sinon`](http://sinonjs.org/)**
 
 *Reference code: 03.MockingWithSinon*
 
@@ -149,3 +149,8 @@ For example, continuing with the credit check example, we don't give canned answ
 - `sinon.spy()` gives us a fake function; `var fakeFunc = sinon.spy()` and we could use this to track execution (*spy*). We can *spy* it like - *is the function executed*, *how many times it is executed* etc. 
 - Let's bring in Sinon using `var sinon = require('sinon');` and then spy the function *render* in our fake *response* object using `var response = {}; response.render = sinon.spy();`. Now we could make use of the functions from `spy` like `calledOnce`, `calledTwice` etc. For example: `response.render.calledOnce.should.be.true`
 - `sinon.spy()` can also be used to watch an existing function. For example, `sinon.spy(user, 'isAuthorized')` where *isAuthorized* is a function we want to watch on the *user* object. 
+
+**Stubbing and Mocking using [`Sinon`](http://sinonjs.org/)**
+
+- We saw that `sinon.spy()` variations can be used to create (fake) or spy a function. But sometimes, we need to replace a function (stub it) - for example, to avoid call to the database or network call. 
+- `sinon.stub()` can be used to stub (replace) a function: `sinon.stub(obj, 'functionName')`; doing so, we can control the behavior of the function directly and make sure that it is working the way we want it to work, we can return things, throw exceptions etc. to control the behaviour. 

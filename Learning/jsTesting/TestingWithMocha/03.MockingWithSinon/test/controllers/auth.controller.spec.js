@@ -44,14 +44,66 @@ describe('Auth Controller', function () {
     });
 
     describe('Get Index Page', function () {
-        it('Should render index', function () {
-            var req = {}; // Fake request
-            var res = {}; // Fake response
-            res.render = sinon.spy(); // Spy
+
+        // Setup
+        var user = {};
+        beforeEach('Set up user', function () {
+            user = {
+                roles: ['user', 'admin'],
+                isAuthorized: function (roleToCheck) {
+                    return this.roles.indexOf(roleToCheck) >= 0;
+                }
+            }
+        });
+
+        it('Should render index if authorized', function () {
+            // Arrange...
+            // Fake request
+            var req = {
+                user: user
+            };
+            // Fake response
+            var res = {
+                render: sinon.spy() // Dummy render via Spy
+            };
+            // Stub user's isAuthorized function
+            var isAuth = sinon.stub(user, 'isAuthorized').returns(true);
+
+            // Act...
             authController.getIndex(req, res);
+
+            // Assert...
+            // Check if is authorized is called
+            isAuth.calledOnce.should.be.true;
+            // Check that the render method is called
             res.render.calledOnce.should.be.true;
-            // We can check the arguments 
+            // Make sure that correct render is called. 
             res.render.firstCall.args[0].should.equal('index');
+        });
+
+        it('Should render error if not authorized', function () {
+            // Arrange...
+            // Fake request
+            var req = {
+                user: user
+            };
+            // Fake response
+            var res = {
+                render: sinon.spy() // Dummy render via Spy
+            };
+            // Stub user's isAuthorized function
+            var isAuth = sinon.stub(user, 'isAuthorized').returns(false);
+
+            // Act...
+            authController.getIndex(req, res);
+
+            // Assert...
+            // Check if is authorized is called
+            isAuth.calledOnce.should.be.true;
+            // Check that the render method is called
+            res.render.calledOnce.should.be.true;
+            // Make sure that correct render is called. 
+            res.render.firstCall.args[0].should.equal('notauthorized');
         });
     });
 });

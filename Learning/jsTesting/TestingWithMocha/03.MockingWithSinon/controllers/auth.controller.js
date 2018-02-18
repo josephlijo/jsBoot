@@ -21,7 +21,12 @@ function AuthController() {
     }
 
     function getIndex(request, response) {
-        response.render('index');
+        // Let's make the response render based on the role
+        if (request.user.isAuthorized('admin')) {
+            response.render('index');
+        } else {
+            response.render('notauthorized');
+        }
     }
 
     return {
