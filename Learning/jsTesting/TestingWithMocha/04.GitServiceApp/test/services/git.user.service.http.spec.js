@@ -1,10 +1,12 @@
 var chai = require('chai');
 var sinon = require('sinon');
 
+var https = require('https');
+
 chai.should();
 var gitUserService = require('../../services/git.user.service');
 
-describe('Git HTTP Service', function () {
+describe('Git Service', function () {
     describe('Get Git User', function () {
         // Test case: Get user information from Git
         it('Should return user information', function () {

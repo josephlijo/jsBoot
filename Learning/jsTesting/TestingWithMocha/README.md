@@ -159,3 +159,10 @@ For example, continuing with the credit check example, we don't give canned answ
 - Lets move to use Mock - which is a combination of fake methods (like spies), with pre-programmed behavior (like stubs), as well as pre-programmed expectations.
 - With fakes, spies, and stubs, we were faking out the behavior and then testing the expected output. Why not we encapsulate all these expectations too? i.e. to completely mock all these expectation inside a single object and then test it. 
 - For example, we were checking `res` (response object) like `res.render.calledOnce.should.be.true` to make sure that its *render* method is called once, and `res.render.firstCall.args[0].should.equal('error')` to make sure that the *render* was called with the argument *error*; This expectation both can be *mocked* using `var mockedResponse = sinon.mock(res)` to create a *mocked object* and then adding expectations like `mockedResponse.expects('render').once().withExactArgs('error')`
+
+## Real application testing
+
+*Reference code: TestingWithMocha\04.GitServiceApp* 
+
+- Testing a [real HTTP call](https://github.com/ljnotes/jsBoot/blob/master/Learning/jsTesting/TestingWithMocha/04.GitServiceApp/test/services/git.user.service.spec.js) 
+- Testing by [mocking an HTTP call](https://github.com/ljnotes/jsBoot/blob/master/Learning/jsTesting/TestingWithMocha/04.GitServiceApp/test/services/git.user.service.http.spec.js)
