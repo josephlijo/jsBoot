@@ -129,15 +129,20 @@ We need to also append `should` via `chai.should()`
 **Dummy, Fake, Stubs, Spies, Mocks**
 
 The system that we are testing, the *System Under Test (SUT)* might have dependencies and moving parts, and in order to test our system, we might need to include *test doubles* which can be: 
-- `Dummy`: For the sake of *using* it.
+- `Dummy`: For the sake of *using* it. 
 For example, *filling in the function arguments* to use the function which otherwise we couldn't. 
-- `Fake`: Faking a real *something*. Has implementation, but not real one, we are faking it.
+- `Fake`: Faking a real *something*. Has implementation, but not real one, we are faking it. 
 For example, real database with in-memory *database*. 
-- `Stubs`: Making sure that *this* does *that*. *that* will be not be the same thing as in real environment, but it is *the* thing which is expected to *proceed* with next.
+- `Stubs`: Making sure that *this* does *that*. *that* will be not be the same thing as in real environment, but it is *the* thing which is expected to *proceed* with next. 
 For example, *given the current credits of a user*, we need to *make sure user is eligible or not for more*. We cannot get the *real credit* so we pass in *an option* to continue further with *what we need to do - i.e. to do credit check*. 
-- `Spies`: *Intelligent Stubs*; Spies are Stubs, but *intelligently stubbed* to *capture and record* more details which can be later used as an *observation point (post test analysis)*.
+- `Spies`: *Intelligent Stubs*; Spies are Stubs, but *intelligently stubbed* to *capture and record* more details which can be later used as an *observation point (post test analysis)*. 
 For example, *stubbing the credit check system*, but *recording how many times the credit check system was called* in the process of *credit check*, which can be later used to understand the *load the credit check receives* from our system.
-- `Mocks`: Mimic the behaviour of a dependent object of our SUT *in all ways*. We *don't stub it to give canned answers, but we program it in a way to expect all we could* and they test against it - *this pre-programming is to cover all cases we should expect*. 
-For example, continuing with the credit score example, we don't give canned answers like 10 or -10, but all cases we need to take care of *negative, positive, exception, interruption* which our system are dealing with. 
+- `Mocks`: Mimic the behaviour of a dependent object of our SUT *in all ways*. We *don't stub it to give canned answers, but we program it in a way to expect all we could* and then test against it - *this pre-programming is to cover all cases we should expect*. 
+For example, continuing with the credit check example, we don't give canned answers, say, 10 or -10, but all cases we need to take care of - *negative, positive, exception, interruption*, anything - which our system is dealing with. 
 
 **Mocking using [`Sinon`](http://sinonjs.org/)**
+
+*Reference code: 03.MockingWithSinon*
+
+- Install Sinon - `npm install --save sinon`
+- 
