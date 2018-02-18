@@ -133,12 +133,12 @@ The system that we are testing, the *System Under Test (SUT)* might have depende
 For example, *filling in the function arguments* to use the function which otherwise we couldn't. 
 - `Fake`: Faking a real *something*. Has implementation, but not real one, we are faking it. 
 For example, real database with in-memory *database*. 
-- `Stubs`: Making sure that *this* does *that*. *that* will be not be the same thing as in real environment, but it is *the* thing which is expected to *proceed* with next. 
-For example, *given the current credits of a user*, we need to *make sure user is eligible or not for more*. We cannot get the *real credit* so we pass in *an option* to continue further with *what we need to do - i.e. to do credit check*. 
+- `Stubs`: Making sure that *this* does *that*. *that* will be not be the same thing as in real environment, but it is *the* thing which is *just needed* to *proceed* with next. 
+For example, *given the current credits of a user*, we need to *make sure user is eligible or not for more*. We cannot get the *real credit* so we pass in *an option - like bad credit, or good credit or error doing check* to continue further with *what we need to do - i.e. to do credit check*. 
 - `Spies`: *Intelligent Stubs*; Spies are Stubs, but *intelligently stubbed* to *capture and record* more details which can be later used as an *observation point (post test analysis)*. 
 For example, *stubbing the credit check system*, but *recording how many times the credit check system was called* in the process of *credit check*, which can be later used to understand the *load the credit check receives* from our system.
 - `Mocks`: Mimic the behaviour of a dependent object of our SUT *in all ways*. We *don't stub it to give canned answers, but we program it in a way to expect all we could* and then test against it - *this pre-programming is to cover all cases we should expect*. 
-For example, continuing with the credit check example, we don't give canned answers, say, 10 or -10, but all cases we need to take care of - *negative, positive, exception, interruption*, anything - which our system is dealing with. 
+For example, continuing with the credit check example, we don't give canned answers, say, 10 or -10, but all cases we need to take care of - *checked with Bank and Council and so we expect postive result from credit system*, anything - which our system is dealing with. 
 
 **Faking and Spying using [`Sinon`](http://sinonjs.org/)**
 
@@ -158,4 +158,4 @@ For example, continuing with the credit check example, we don't give canned answ
 - By using *Stubs* we are getting rid of this function all together and controlling the behavior of it - like wise, it is not getting called in real. 
 - Lets move to use Mock - which is a combination of fake methods (like spies), with pre-programmed behavior (like stubs), as well as pre-programmed expectations.
 - With fakes, spies, and stubs, we were faking out the behavior and then testing the expected output. Why not we encapsulate all these expectations too? i.e. to completely mock all these expectation inside a single object and then test it. 
-- For example, we were checking `res` (response object) like `res.render.calledOnce.should.be.true` to make sure that it *render* method is called once, and `res.render.firstCall.args[0].should.equal('error')` to make sure that the *render* was called with the argument *error*; This expectation both can be *mocked* using `var mockedResponse = sinon.mock(res)` to create a *mocked object* and then adding expectations like `mockedResponse.expects('render').once().withExactArgs('error')`
+- For example, we were checking `res` (response object) like `res.render.calledOnce.should.be.true` to make sure that its *render* method is called once, and `res.render.firstCall.args[0].should.equal('error')` to make sure that the *render* was called with the argument *error*; This expectation both can be *mocked* using `var mockedResponse = sinon.mock(res)` to create a *mocked object* and then adding expectations like `mockedResponse.expects('render').once().withExactArgs('error')`
