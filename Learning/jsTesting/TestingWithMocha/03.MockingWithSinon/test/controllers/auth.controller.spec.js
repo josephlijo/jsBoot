@@ -15,6 +15,34 @@ chai.should();
 
 describe('Auth Controller', function () {
 
+    describe('Is Authorized', function () {
+        // Setup
+        var user = {};
+        beforeEach('Set up user', function () {
+            user = {
+                roles: ['user', 'admin'],
+                isAuthorized: function (roleToCheck) {
+                    return this.roles.indexOf(roleToCheck) >= 0;
+                }
+            }
+            // Set the user and roles
+            authController.setRoles(['admin', 'user']);
+
+            // Spy the user object's `isAuthorized` function
+            sinon.spy(user, 'isAuthorized');
+
+            // Set the user object to the controller
+            authController.setUser(user);
+        });
+
+        it('Should return true if authorized', function () {
+            var isAuthorized = authController.isAuthorized('admin');
+            // isAuthorized.should.be.true;
+            // Since we are spying on the user.isAuthorized, we can make sure that it is called
+            user.isAuthorized.calledOnce.should.be.true;
+        });
+    });
+
     describe('Get Index Page', function () {
         it('Should render index', function () {
             var req = {}; // Fake request
