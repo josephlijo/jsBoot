@@ -102,9 +102,17 @@ describe('Auth Controller', function () {
         });
 
         it('Should render error if there is error', function () {
+
             // Arrange...
             // Stub user's isAuthorized function
             var isAuth = sinon.stub(user, 'isAuthorized').throws();
+            // We are mocking, so remove `spying` render twice
+            res = {
+                render: function () { }
+            };
+
+            var mockedResponse = sinon.mock(res);
+            mockedResponse.expects('render').once().withExactArgs('error');
 
             // Act...
             authController.getIndex(req, res);
@@ -112,10 +120,7 @@ describe('Auth Controller', function () {
             // Assert...
             // Check if is authorized is called
             isAuth.calledOnce.should.be.true;
-            // Check that the render method is called
-            res.render.calledOnce.should.be.true;
-            // Make sure that correct render is called. 
-            res.render.firstCall.args[0].should.equal('error');
+            mockedResponse.verify();
         });
     });
 });
