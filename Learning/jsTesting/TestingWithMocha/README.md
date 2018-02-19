@@ -168,3 +168,5 @@ For example, continuing with the credit check example, we don't give canned answ
 - Testing by [mocking an HTTP call](https://github.com/ljnotes/jsBoot/blob/master/Learning/jsTesting/TestingWithMocha/04.GitServiceApp/test/services/git.user.service.http.spec.js)
 - Code Coverage can be checked using [`Istanbul`](https://istanbul.js.org/); install it using `npm i -g istanbul` and `npm install --save-dev nyc`. To include coverage for our application, place the command nyc in front of your existing test command, for example: `"test": "nyc mocha"` in package.json;
 Another sample: `nyc mocha ./test/**/*.spec.js` and do `npm test`
+
+References: [Istanbul with Mocha](https://istanbul.js.org/docs/tutorials/mocha/) 
