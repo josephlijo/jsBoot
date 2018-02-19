@@ -5,3 +5,5 @@ pointless_change
 
 Resources
 temp
+coverage
+.nyc_output
