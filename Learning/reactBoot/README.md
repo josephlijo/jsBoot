@@ -5,10 +5,10 @@
 - This expression is called a JSX expression which gets translated to JavaScript script. For this expression to be translated, we need a JavaScript preprocessor `babel`.
 
 Babel translates `const element = <div>Hello, React!</div>;` to: 
-> var element = React.createElement(
-  "div", // The element
-  null, // The properties 
-  "Hello, React!" // Children (can be another element)
+> var element = React.createElement(  
+  "div", // The element  
+  null, // The properties  
+  "Hello, React!" // Children (can be another element)  
 );
 
 - Check [babel's REPL](https://babeljs.io/repl/) to check how it gets transformed.
