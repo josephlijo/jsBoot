@@ -55,3 +55,10 @@ gets rendered as:
 As we can see, *params* is an object and it contains all the properties added to the `<Greeting />` component. This *params* in React is called **props**
 - Here we could re-use the component, see for [example](https://codepen.io/LJdev/pen/WMzgve) how we are using the same component with different properties (class name)
 - We could also [compose](https://codepen.io/LJdev/pen/NyYLjP) the components inside another component. 
+- **Props should be read-only** and try to keep the function *pure* (i.e. not modifying the property inside the function).
+
+**Class Components**
+- Class component `extends` from `React.Component` and we write it using ES6 class syntax
+- If we are using `props`, make sure that we call the super class constructor with `props` and we should also be accessing the props using the context `this.props`. 
+- See the above functional component written as [class component](https://codepen.io/LJdev/pen/paLOqe)
+- Class components have additonal **advantage over functional components that we can hook up to different lifecycle events and use state management**. 
