@@ -12,14 +12,14 @@ Babel translates `const element = <div>Hello, React!</div>;` to:
 );
 
 - Check [babel's REPL](https://babeljs.io/repl/) to check how it gets transformed.
-- Link this code to [elements](//codepen.io/LJdev/pen/KQoyvY)
-- In addition to the this we need to include [React](//unpkg.com/react/umd/react.development.js) and [React DOM](//unpkg.com/react-dom/umd/react-dom.development.js) JavaScript code files
+- Example code to use basic structure - [elements](//codepen.io/LJdev/pen/KQoyvY)
+- In addition to this we need to include [React](//unpkg.com/react/umd/react.development.js) and [React DOM](//unpkg.com/react-dom/umd/react-dom.development.js) JavaScript code files
 
 ## Do we need JSX? 
 - No, instead of using JSX, we can use `React.createElement...` to create elements
 - But, JSX makes it more readable
-- In Angular, we have seen a way of separation of concerns by putting HTML in *some.component.html* and backing code in *some.component.ts*, and in the backing code file we specify which template to render.
-In React, we are separating the concerns, but in a more intuitive way like `const element = <div className="test" anotherProperty="">`; React uses the same concept of Angular (would be right to say Angular borrowed this concept) named `components` but it React components contains both `html`, and `JavaScript`.
+- In Angular, we have seen a way of separation of concerns by putting HTML in `my.component.html` and backing code in `my.component.ts` and in the backing code file we specify which template to render (using `decorator`). Then we make use of *in built* data binding *to bind component class data to view*. In Angular, this *backing code class* encapsulates data.  
+In React, we are separating the concerns, in a similar way, `const element = <div className="test" anotherProperty="">`; React uses the same concept of Angular named `components` but React components contains both `html`, and `JavaScript` together. 
 - JSX is an expression itself and it can contain expression. See [example](https://codepen.io/LJdev/pen/aqYqyM)
 
 **Attributes in JSX**
@@ -27,6 +27,9 @@ In React, we are separating the concerns, but in a more intuitive way like `cons
 
 **Using Children in JSX**
 - Make sure that if we have child elements, they are wrapped inside a parent element. No child element stands alone. The elements form a tree. For example, see [JSX Expressions](https://codepen.io/LJdev/pen/XZEZyQ)
+
+## Components everywhere
+TODO:// Angular vs. React *Component architecture* 
 
 ## Rendering JSX (React elements). 
 - We make use of `ReactDOM` object's `render` method to render the JSX (or React Element object). 
@@ -82,7 +85,7 @@ const renderElement = () => {
 setInterval(renderElement, 1000);
 ```
 
-We can see that the component is not re-usable. 
+We can see that this element is not re-usable. 
 - Let's refactor it to make is follow the principle of **re-usablity - using class** (Clock); and **encapsulation using embedding the data it is controlling - time - inside the class**. So, *time* is the data associated with the class `Clock` and `Clock` is responsible for updating it. 
 In order to do that, we should make it a class using `class Clock extends React.Component` and encapsulate the data in its state via `this.state = {date: new Date()}`
 - How do we handle state changes? 
@@ -112,6 +115,30 @@ this.setState((prevState, props) => ({
 ```
 - **State updates are merged**  
 If we have state as `this.state = {post: [], comments: []}`, and we do `setState({post: responseFromHTTP})`, it will do a shallow merge and so it keeps `this.state.comments` intact.
+
 - **The data flows down**  
 Neither parent nor child components can know if a certain component is stateful or stateless, and they shouldn’t care whether it is defined as a function or a class.  
 *This is why state is often called local or encapsulated*. It is not accessible to any component other than the one that owns and sets it.  
+
+## Event Handling in React
+
+- Naming: camelCase  
+Like attributes, we use camelCase to specify the event name - *onclick* in HTML becomes *onClick* in React  
+For example `<button onclick="printHello()">Say Hello</button>` in React is `<button onClick={printHello}>Say Hello</button>`  
+- Default behavior *preventDefault* - [Synthetic Events](https://reactjs.org/docs/events.html)  
+`return false` to *prevent default behavior in browser* makes no sense in React; We need to call `event.preventDefault()`  
+For example, we could `<a href='#' onclick="doSomething(); return false;">Click!</a>` in plain HTML to prevent the default behavior of click on anchor; In React, we need to explicitly call as below: 
+```
+function ActionLink() {
+  function handleClick(e) {
+    e.preventDefault();
+    console.log('The link was clicked.');
+  }
+
+  return (
+    <a href="#" onClick={handleClick}>
+      Click me
+    </a>
+  );
+}
+```
