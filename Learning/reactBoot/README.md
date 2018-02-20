@@ -32,3 +32,25 @@ In React, we are separating the concerns, but in a more intuitive way like `cons
 - We make use of `ReactDOM` object's `render` method to render the JSX (or React Element object). 
 - The `render` accepts the elements to render and *where to render* - this *where* will be an DOM element, for example: `<div id='root'></div>`; As a good practise use only one *container* where the element gets rendered.
 - React uses *diffing* by the usage of *Virtual DOM* to render the contents. Once the elements are rendered, any change to the component structure means that only the *difference* are applied to the browser DOM. See it in action [here](https://codepen.io/LJdev/pen/jZzzEe)
+
+## Components and States
+- We saw basic rendering by encapsulating the *elements* as an expression. 
+- *Components* extends this further making these *re-usable* and *isolated*
+- How to create re-usable components?
+> Using basic JavaScript functions - [Functional Components](https://codepen.io/LJdev/pen/bLvvaQ) 
+> Using `classes` - [Class components]()
+
+**Functional Components**
+- We can see from this [example](https://codepen.io/LJdev/pen/bLvvaQ) that the function  
+```
+const Greeting = (params) => {
+  return <div>Welcome, {JSON.stringify(params)}</div>
+};
+
+ReactDOM.render(<Greeting name="James"/>, document.getElementById('root'));
+``` 
+gets rendered as: 
+> Welcome, {"name":"James"}
+
+As we can see, *params* is an object and it contains all the properties added to the `<Greeting />` component. This *params* in React is called **props**
+- Here we could re-use the component, see for [example](https://codepen.io/LJdev/pen/WMzgve) how we are using the same component with different properties (class name)
