@@ -27,3 +27,8 @@ In React, we are separating the concerns, but in a more intuitive way like `cons
 
 **Using Children in JSX**
 - Make sure that if we have child elements, they are wrapped inside a parent element. No child element stands alone. The elements form a tree. For example, see [JSX Expressions](https://codepen.io/LJdev/pen/XZEZyQ)
+
+## Rendering JSX (which are React elements). 
+- We make use of `ReactDOM` object's `render` method to render the JSX (or React Element object). 
+- The `render` accepts the elements to render and *where to render* - this *where* will be an DOM element, for example: `<div id='root'></div>`; As a good practise use only one *container* where the element gets rendered.
+- React uses *diffing* by the usage of *Virtual DOM* to render the contents. Once the elements are rendered, any change to the component structure means that only the *difference* are applied to the browser DOM. See it in action [here](https://codepen.io/LJdev/pen/jZzzEe)
