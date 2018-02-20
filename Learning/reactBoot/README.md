@@ -28,7 +28,7 @@ In React, we are separating the concerns, but in a more intuitive way like `cons
 **Using Children in JSX**
 - Make sure that if we have child elements, they are wrapped inside a parent element. No child element stands alone. The elements form a tree. For example, see [JSX Expressions](https://codepen.io/LJdev/pen/XZEZyQ)
 
-## Rendering JSX (which are React elements). 
+## Rendering JSX (React elements). 
 - We make use of `ReactDOM` object's `render` method to render the JSX (or React Element object). 
 - The `render` accepts the elements to render and *where to render* - this *where* will be an DOM element, for example: `<div id='root'></div>`; As a good practise use only one *container* where the element gets rendered.
 - React uses *diffing* by the usage of *Virtual DOM* to render the contents. Once the elements are rendered, any change to the component structure means that only the *difference* are applied to the browser DOM. See it in action [here](https://codepen.io/LJdev/pen/jZzzEe)
@@ -62,3 +62,32 @@ As we can see, *params* is an object and it contains all the properties added to
 - If we are using `props`, make sure that we call the super class constructor with `props` and we should also be accessing the props using the context `this.props`. 
 - See the above functional component written as [class component](https://codepen.io/LJdev/pen/paLOqe)
 - Class components have additonal **advantage over functional components that we can hook up to different lifecycle events and use state management**. 
+
+## States and Lifecycle
+
+- *State* is similar to *props*, but it is private to the component (class) and fully controlled b the component class. 
+- State feature is only available to class components
+- Continuing with the ticker example
+```
+const renderTime = (date) => {
+  return date.toLocaleString();
+}
+
+const renderElement = () => {
+  const element = <div>The time is: {renderTime(new Date())}</div>;
+
+  ReactDOM.render(element, document.getElementById('root'));
+};
+
+setInterval(renderElement, 1000);
+```
+
+We can see that the component is not re-usable. 
+- Let's refactor it to make is follow the principle of **re-usablity - using class** (Clock); and **encapsulation using embedding the data it is controlling - time - inside the class**. So, *time* is the data associated with the class `Clock` and `Clock` is responsible for updating it. 
+In order to do that, we should make it a class using `class Clock extends React.Component` and encapsulate the data in its state via `this.state = {date: new Date()}`
+- How do we handle state changes? 
+By using **Life cycle hooks**  
+**componentDidMount()** is a life cycle hook which runs after the component has been rendered. Here we can *set up the state of clock to be changed every second*  
+**componentWillUnmount()** is a life cycle hook which runs after the component has been destroyed and we can use it for *tear down the timer itself*
+- See the code in action [here](https://codepen.io/LJdev/pen/paLxwa)
+- Note: **When the state changes, the component will re-render**
