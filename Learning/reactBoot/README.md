@@ -23,7 +23,7 @@ In React, we are separating the concerns, but in a more intuitive way like `cons
 - JSX is an expression itself and it can contain expression. See [example](https://codepen.io/LJdev/pen/aqYqyM)
 
 **Attributes in JSX**
-- Atributes in JSX takes the camelCase naming and the HTML attributes have a different form in React so that the JavaScript aspect of React is not colliding with HTML attributes. For example, `class` becomes `className` in React. 
+- Attributes in JSX takes the camelCase naming and the HTML attributes have a different form in React so that the JavaScript aspect of React is not colliding with HTML attributes. For example, `class` becomes `className` in React. 
 
 **Using Children in JSX**
 - Make sure that if we have child elements, they are wrapped inside a parent element. No child element stands alone. The elements form a tree. For example, see [JSX Expressions](https://codepen.io/LJdev/pen/XZEZyQ)
@@ -54,3 +54,4 @@ gets rendered as:
 
 As we can see, *params* is an object and it contains all the properties added to the `<Greeting />` component. This *params* in React is called **props**
 - Here we could re-use the component, see for [example](https://codepen.io/LJdev/pen/WMzgve) how we are using the same component with different properties (class name)
+- We could also [compose](https://codepen.io/LJdev/pen/NyYLjP) the components inside another component. 
