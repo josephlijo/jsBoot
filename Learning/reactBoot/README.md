@@ -91,3 +91,27 @@ By using **Life cycle hooks**
 **componentWillUnmount()** is a life cycle hook which runs after the component has been destroyed and we can use it for *tear down the timer itself*
 - See the code in action [here](https://codepen.io/LJdev/pen/paLxwa)
 - Note: **When the state changes, the component will re-render**
+
+**Using States correctly**
+- **Do not modify state directly**  
+use `this.setState({comment: 'thanks!'})`; If we use `this.state.comment = 'Thanks!'`, the component will not re-render  
+We can use `this.state = ...` only in the constructor
+- **State update maybe Async**  
+Because this.props and this.state may be updated asynchronously, you should not rely on their values for calculating the next state.  
+```
+// Wrong
+this.setState({
+  counter: this.state.counter + this.props.increment,
+});
+```
+The correct usage is  
+```
+this.setState((prevState, props) => ({
+  counter: prevState.counter + props.increment
+}));
+```
+- **State updates are merged**  
+If we have state as `this.state = {post: [], comments: []}`, and we do `setState({post: responseFromHTTP})`, it will do a shallow merge and so it keeps `this.state.comments` intact.
+- **The data flows down**  
+Neither parent nor child components can know if a certain component is stateful or stateless, and they shouldn’t care whether it is defined as a function or a class.  
+*This is why state is often called local or encapsulated*. It is not accessible to any component other than the one that owns and sets it.  
