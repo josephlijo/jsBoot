@@ -43,7 +43,7 @@ TODO:// Angular vs. React *Component architecture*
 - *Components* extends this further making these *re-usable* and *isolated*
 - How to create re-usable components?
 > Using basic JavaScript functions - [Functional Components](https://codepen.io/LJdev/pen/bLvvaQ)  
-> Using `classes` - [Class components]()
+> Using `classes` - [Class components](https://codepen.io/LJdev/pen/paLOqe)
 
 **Functional Components**
 - We can see from this [example](https://codepen.io/LJdev/pen/bLvvaQ) that the function  
