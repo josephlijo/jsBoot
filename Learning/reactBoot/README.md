@@ -150,3 +150,6 @@ function ActionLink() {
 > You have to be careful about the meaning of `this` in JSX callbacks. In JavaScript, class methods are not `bound` by default. If you forget to bind `this.handleClick` and pass it to `onClick`, this will be `undefined` when the function is actually called.
 
 > This is not React-specific behavior; it is a part of how functions work in JavaScript. Generally, if you refer to a method without `()` after it, such as `onClick={this.handleClick}`, you should bind that method.
+
+- See the sample code [here](https://codepen.io/LJdev/pen/MQGOPN)
+- Demo on Synthetic events and using cancelling the default behavior of browser [here](https://codepen.io/LJdev/pen/rJvpYj)
