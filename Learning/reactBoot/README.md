@@ -160,3 +160,12 @@ function ActionLink() {
 <button onClick={this.deleteRow.bind(this, id)}>Delete Row</button>
 ```
 See the code [here](https://codepen.io/LJdev/pen/GQdQZR) to see it in action
+
+## Conditional rendering, inline if-else, inline if with &&
+- Read more [here](https://reactjs.org/docs/conditional-rendering.html)
+- Sample [code](https://codepen.io/LJdev/pen/OQZQZR)
+
+## List and Keys
+- If we are generating `li` elements to be rendered inside our `ul`, we need to specify a `key` attribute, which is required by React to do the *diffing*.  
+Note: It is good to not use index as key as the order of items may change and would have negative effect which might be hard to debug and discover. Code demo [here](https://codepen.io/LJdev/pen/ddemyY)
+
