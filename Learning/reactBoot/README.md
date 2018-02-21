@@ -201,3 +201,28 @@ Note: It is good to not use index as key as the order of items may change and wo
 > In React, **sharing state is accomplished by moving it up to the closest common ancestor of the components that need it. This is called “lifting state up”.**  
 - Here is a sample [app](https://codepen.io/gaearon/pen/WZpxpz?editors=0010) which walks through it.  
 Upon, changing the temperature, we would change the *state* which would force the components to re-render. 
+
+## Fragments
+- Can come to the rescue when we group child components in a parent component - say a Parent compoent renders table using 
+```
+<table>
+  <tr>
+    <ColumnComponent />
+  </tr>
+</table>
+```
+Here we have a problem that the Child component should be grouped inside a parent tag and if we do so in Child component 
+```
+<div>
+  <td>First Col</td>
+  <td>Second Col</td>
+</div>
+```
+We will now have `div` inside the `tr` which is not a valid syntax.
+- Fragments can be used to solve that problem.
+```
+<React.Fragment>
+  <td>First Col</td>
+  <td>Second Col</td>
+</React.Fragment>
+```
