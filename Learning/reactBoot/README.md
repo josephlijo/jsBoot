@@ -153,3 +153,10 @@ function ActionLink() {
 
 - See the sample code [here](https://codepen.io/LJdev/pen/MQGOPN)
 - Demo on Synthetic events and using cancelling the default behavior of browser [here](https://codepen.io/LJdev/pen/rJvpYj)
+
+- Passing arguments to event handler can be done via either of the below code: 
+```
+<button onClick={(e) => this.deleteRow(id, e)}>Delete Row</button>
+<button onClick={this.deleteRow.bind(this, id)}>Delete Row</button>
+```
+See the code [here](https://codepen.io/LJdev/pen/GQdQZR) to see it in action
