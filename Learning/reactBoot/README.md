@@ -127,7 +127,7 @@ Neither parent nor child components can know if a certain component is stateful 
 - Naming: camelCase  
 Like attributes, we use camelCase to specify the event name - *onclick* in HTML becomes *onClick* in React  
 For example `<button onclick="printHello()">Say Hello</button>` in React is `<button onClick={printHello}>Say Hello</button>`  
-- Default behavior *preventDefault* - [Synthetic Events](https://reactjs.org/docs/events.html)  
+- Use *preventDefault* in React - [Synthetic Events](https://reactjs.org/docs/events.html)  
 `return false` to *prevent default behavior in browser* makes no sense in React; We need to call `event.preventDefault()`  
 For example, we could `<a href='#' onclick="doSomething(); return false;">Click!</a>` in plain HTML to prevent the default behavior of click on anchor; In React, we need to explicitly call as below: 
 ```
@@ -144,3 +144,9 @@ function ActionLink() {
   );
 }
 ```
+- Here `e` (as above) is a [Synthetic Event](https://reactjs.org/docs/events.html) - which is a cross-browser wrapper around browser's native event. Advantage is that it holds the same interface as browsers native event (like `stopPropogration` and `preventDefault`), except events works the same across all browsers. 
+- `addEventListener('event', handler)` is the way we add event handlers in normal HTML, JavaScript; But it React, we just provide a listener / handler to an element when it is initially rendered. See this [example](http://codepen.io/gaearon/pen/xEmzGg?editors=0010) from React docs. 
+
+> You have to be careful about the meaning of `this` in JSX callbacks. In JavaScript, class methods are not `bound` by default. If you forget to bind `this.handleClick` and pass it to `onClick`, this will be `undefined` when the function is actually called.
+
+> This is not React-specific behavior; it is a part of how functions work in JavaScript. Generally, if you refer to a method without `()` after it, such as `onClick={this.handleClick}`, you should bind that method.
