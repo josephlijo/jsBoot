@@ -61,7 +61,20 @@ As we can see, *params* is an object and it contains all the properties added to
 - Here we could re-use the component, see for [example](https://codepen.io/LJdev/pen/WMzgve) how we are using the same component with different properties (class name)
 - We could also [compose](https://codepen.io/LJdev/pen/NyYLjP) the components inside another component. 
 - **Props should be read-only** and try to keep the function *pure* (i.e. not modifying the property inside the function).
+
+**DefaultProps, Prop Types and static type checking using Flow or TypeScript**
 - We can pass **default props** to a component, for example, *Greeting* via `Greeting.defaultProps = {name: 'Stranger'}` in case of functional components or embedding them as static members in class components like `static defaultProps = {name: 'Stranger'}`
+- We can make use of [PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html) to ensure the type of the properties
+- For static type checking we could make use of [flow](https://reactjs.org/docs/static-type-checking.html)
+
+**Refs and DOM**
+- *Props* are the way the parent components interact with their children
+- What about cases like managing DOM elements? We could use *ref* in this cases:  
+1. Managing focus, text selection, or media playback
+2. Triggering animations
+3. Working with third-party DOM libraries (for example, D3.js)
+- Sample code [here](https://codepen.io/LJdev/pen/WMJavx)
+- In React we can use Controlled components and Uncontrolled components. Controlled components manages the state of the form elements via `state` where as in uncontrolled components the DOM changes takes effect by itself (the default behavior) and we could get hold of the DOM elements using `ref`
 
 **Class Components**
 - Class component `extends` from `React.Component` and we write it using ES6 class syntax
