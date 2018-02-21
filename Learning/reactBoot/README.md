@@ -61,6 +61,7 @@ As we can see, *params* is an object and it contains all the properties added to
 - Here we could re-use the component, see for [example](https://codepen.io/LJdev/pen/WMzgve) how we are using the same component with different properties (class name)
 - We could also [compose](https://codepen.io/LJdev/pen/NyYLjP) the components inside another component. 
 - **Props should be read-only** and try to keep the function *pure* (i.e. not modifying the property inside the function).
+- We can pass **default props** to a component, for example, *Greeting* via `Greeting.defaultProps = {name: 'Stranger'}` in case of functional components or embedding them as static members in class components like `static defaultProps = {name: 'Stranger'}`
 
 **Class Components**
 - Class component `extends` from `React.Component` and we write it using ES6 class syntax
