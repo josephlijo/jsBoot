@@ -75,6 +75,8 @@ As we can see, *params* is an object and it contains all the properties added to
 3. Working with third-party DOM libraries (for example, D3.js)
 - Sample code [here](https://codepen.io/LJdev/pen/WMJavx)
 - In React we can use Controlled components and Uncontrolled components. Controlled components manages the state of the form elements via `state` where as in uncontrolled components the DOM changes takes effect by itself (the default behavior) and we could get hold of the DOM elements using `ref`
+- In uncontrolled components we might want to specify the default values and leave the subsequent updates uncontrolled. For that we could use `defaultValue` attribute and `defaultChecked` for `radio` and `checkbox` types. 
+- Note: the `<input type='file' />` is always uncontrolled. 
 
 **Class Components**
 - Class component `extends` from `React.Component` and we write it using ES6 class syntax
