@@ -226,3 +226,14 @@ We will now have `div` inside the `tr` which is not a valid syntax.
   <td>Second Col</td>
 </React.Fragment>
 ```
+It has a short syntax: 
+```
+<>
+  <td>First Col</td>
+  <td>Second Col</td>
+</>
+```
+
+## Context - contextTypes and childContextTypes (PropTypes) && getChildContext
+- In some cases, we might want to pass the information (for example, color of a button) from the parent component to the child component. If we have list of child components (says 20), passing the same information over and over again via `props` is not required and in this case, we can use `context`
+- For more detailed information, please check the React document on context [here](https://reactjs.org/docs/context.html). 
