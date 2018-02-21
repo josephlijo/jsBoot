@@ -159,7 +159,7 @@ function ActionLink() {
 <button onClick={(e) => this.deleteRow(id, e)}>Delete Row</button>
 <button onClick={this.deleteRow.bind(this, id)}>Delete Row</button>
 ```
-See the code [here](https://codepen.io/LJdev/pen/GQdQZR) to see it in action
+- See the code [here](https://codepen.io/LJdev/pen/GQdQZR) to see it in action
 
 ## Conditional rendering, inline if-else, inline if with &&
 - Read more [here](https://reactjs.org/docs/conditional-rendering.html)
@@ -170,20 +170,18 @@ See the code [here](https://codepen.io/LJdev/pen/GQdQZR) to see it in action
 Note: It is good to not use index as key as the order of items may change and would have negative effect which might be hard to debug and discover. Code demo [here](https://codepen.io/LJdev/pen/ddemyY)
 
 ## Forms and Controlled Components
-> In HTML, form elements such as **<input>, <textarea>, and <select>** typically maintain their own state and update it based on user input. In React, mutable state is typically kept in the state property of components, and only updated with `setState()`.  
-
-> We can **combine the two by making the React state be the “single source of truth”.** Then the React component that renders a form also controls what happens in that form on subsequent user input. An input form element whose value is controlled by React in this way is called a “controlled component”.  
-
-- Controlled component demo [here](https://codepen.io/LJdev/pen/mXLxap)
+> In HTML, form elements such as `<input>, <textarea>, and <select>` typically maintain their own state and update it based on user input. In React, mutable state is typically kept in the state property of components, and only updated with `setState()`.    
+> We can **combine the two by making the React state be the “single source of truth”.** Then the React component that renders a form also controls what happens in that form on subsequent user input. An input form element whose value is controlled by React in this way is called a “controlled component”.
+- Controlled component demo [here](https://codepen.io/LJdev/pen/mXLxap)  
 
 ## Lifting the state up - analyzing by creating an application
 - Let's consider a temperature calculator application, which taken in temperature in both Fahrenheit and Celsius and based on that does the calculation on whether the temperature is enough to boil water. 
 - Thinking from components perspective - we can create 3 components - Temperature input component, result display component and the main component (Calculator) which holds together all other components. 
 - Temperature input component can be reused for both Fahrenheit and Celsius 
 - Result display component is single component which displays the result
-- Calculator components holds together the Temperature input (in both Fahrenheit and Celsius) and Result component. 
-- Where do we keep the state? State is associated with a single component, so we cannot pass it through others. 
-> However, we want these two inputs to be in sync with each other. When we update the Celsius input, the Fahrenheit input should reflect the converted temperature, and vice versa.
+- Calculator components holds together the Temperature input (in both Fahrenheit and Celsius) and Result component.  
+- Where do we keep the state? State is associated with a single component, so we cannot pass it through others.  
+> However, we want these two inputs to be in sync with each other. When we update the Celsius input, the Fahrenheit input should reflect the converted temperature, and vice versa.  
 > In React, **sharing state is accomplished by moving it up to the closest common ancestor of the components that need it. This is called “lifting state up”.**  
 - Here is a sample [app](https://codepen.io/gaearon/pen/WZpxpz?editors=0010) which walks through it.  
 Upon, changing the temperature, we would change the *state* which would force the components to re-render. 
