@@ -85,4 +85,7 @@ function calculateCredit(userId, availableCredit) {
 }
 ```
 Sample code about [composition](https://codepen.io/LJdev/pen/vdrzxp?editors=0011).
-- In Redux, **Composition is used in the store**. The **Reducer** functions that we create to manage specific parts of the state tree are composed and the action and state are sent through 
+- In Redux, **Composition is used in the store**. The **Reducer** functions that we create to manage specific parts of the state tree are composed and the action and state are sent through each of these reducers **until eventually the state is mutated**
+![Redux Reducers](Docs/Images/ReduxReducers_Composition.PNG?raw=true)
+- As Redux users what we need to care about is `identify the State` and `write Reducers correctly` and the **Redux store will manage the state**
+ 
