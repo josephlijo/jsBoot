@@ -23,7 +23,8 @@
 `Store` is responsible for updating OR changing its data. 
 - Finally when `Store` updates the data, that change updates the `View`; The screen changes with the new representation. 
 - Now when the user interacts with the `View`, a new `Action` is created and the process starts all over again. 
-![Flux Flow](Doc/Images/FluxFlow.png?raw=true "Flux Flow")
-- As the application become more big, there would be more `Stores` and `Views` - but, the data flows in one direction. 
+![Flux Flow](Docs/Images/FluxFlow.PNG?raw=true)
+- As the application become more big, there would be more `Stores` and `Views` - but, the data flows in one direction.
+![Flux Flow with multiple Views](Docs/Images/FluxFlowExt.PNG?raw=true)
 
 - **Flux is not a tool or technology, it is a design pattern**
