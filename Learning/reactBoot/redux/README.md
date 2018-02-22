@@ -45,8 +45,33 @@ Redux also has different implementation of Flux: but due to its simplicity it em
 
 ## Redux and How it works
 - Redux is not Flux. *Redux is Flux like*
-- In Flux, data flows in one direction from Action -> Dispatcher -> Store -> Views
+- In Flux, data flows in one direction from Action -> Dispatcher -> Stores -> Views
 - In Redux, data flows in one direction, but the difference is that, **there is only one store**
 - With Redux, we cannot use multiple stores and **since there is only one store, there is no dispatcher; the store will dispatch the actions to view**
 - Having one store means **all of you state is in one place, the single store** - we refer to this as **Single source of truth**
 ![Redux Structure](Docs/Images/ReduxStructure.PNG?raw=true)
+- Let's consider a sample scenario to understand the benefits. For example, our application is a github like collaboration site - where we store user information like profile, repository details, gist details etc. **Having them all in single object make it more readable, understandable and can helps to isolate errors**. 
+```
+var user = {
+    profile: {},
+    repository: {}, 
+    gist: {}
+};
+```
+- But, having them all stored in one place, single store, might now raise concerns about modularity. 
+- In Redux, **modularity is achieved via functions**. Instead of breaking down this object into multiple objects, we use functions. For example, 
+```
+var user = {
+    profile: {}, // <- Can be managed by **profile()** function
+    repository: {}, // <- Can use **project()** and/or **repository()** for this
+    gist: {} // <- Can use **gist()** function for example to manage this section
+};
+```
+- The concept of using `functions` is derived from [Functional Programming Paradigm](https://en.wikipedia.org/wiki/Functional_programming)
+- The functional programming details are used in Redux:
+1. Pure functions 
+Same outcome if the function is called with same arguments  
+No side-effects on memory or IO  
+Sample [code](https://codepen.io/LJdev/pen/XZYYvx?editors=0011)
+2. Immutability
+3. Higher order functions
