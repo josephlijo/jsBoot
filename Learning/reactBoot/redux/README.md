@@ -14,8 +14,16 @@
 - Now to solve this problem of two-way data communication between Models-and-Views - comes, Flux
 
 ## Now comes, Flux
-- Flux is a design pattern developed by Facebook
-- Flux is an alternative to MVC, MVP, or MVVM patterns. All of these MVP, MVVM patterns are basically variations to MVC design pattern)
-- In Flux, data flows in one direction
-- Changes are initiated with `Actions`
-- 
+- Flux is a design pattern developed by Facebook.
+- Flux is an alternative to MVC, MVP, or MVVM patterns. All of these MVP, MVVM patterns are basically variations to MVC design pattern. 
+- In Flux, data flows in one direction.
+- Changes are initiated with `Actions` - which are objects that describes what should change about the data.
+- `Actions` are dispatched with a `Dispatcher` - which are objects which sends the data to the appropriate `Store`.
+- The `Store` holds the data. *The might be like `Models`, but they are not the same*  
+`Store` is responsible for updating OR changing its data. 
+- Finally when `Store` updates the data, that change updates the `View`; The screen changes with the new representation. 
+- Now when the user interacts with the `View`, a new `Action` is created and the process starts all over again. 
+
+- As the application become more big, there would be more `Stores` and `Views` - but, the data flows in one direction. 
+
+- **Flux is not a tool or technology, it is a design pattern**
