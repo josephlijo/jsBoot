@@ -70,8 +70,19 @@ var user = {
 - The concept of using `functions` is derived from [Functional Programming Paradigm](https://en.wikipedia.org/wiki/Functional_programming)
 - The functional programming details are used in Redux:
 1. Pure functions  
-    -- Same outcome if the function is called with same arguments  
-    -- No side-effects on memory or IO  
+    - Same outcome if the function is called with same arguments  
+    - No side-effects on memory or IO  
 Sample [code](https://codepen.io/LJdev/pen/XZYYvx?editors=0011)
 2. Immutability  
 3. Higher order functions  
+4. Composition  (Output from one function becomes the input to another function)
+```
+function calculateCredit(userId, availableCredit) {
+    let current = availableCredit;
+    current = afterCouncilCheck(userId, current);
+    current = afterTVLicensingCheck(userId, current);
+    return current;
+}
+```
+Sample code about [composition](https://codepen.io/LJdev/pen/vdrzxp?editors=0011).
+- In Redux, **Composition is used in the store**. The **Reducer** functions that we create to manage specific parts of the state tree are composed and the action and state are sent through 
