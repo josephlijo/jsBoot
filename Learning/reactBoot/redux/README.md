@@ -69,9 +69,9 @@ var user = {
 ```
 - The concept of using `functions` is derived from [Functional Programming Paradigm](https://en.wikipedia.org/wiki/Functional_programming)
 - The functional programming details are used in Redux:
-1. Pure functions 
-Same outcome if the function is called with same arguments  
-No side-effects on memory or IO  
+1. Pure functions  
+    -- Same outcome if the function is called with same arguments  
+    -- No side-effects on memory or IO  
 Sample [code](https://codepen.io/LJdev/pen/XZYYvx?editors=0011)
-2. Immutability
-3. Higher order functions
+2. Immutability  
+3. Higher order functions  
