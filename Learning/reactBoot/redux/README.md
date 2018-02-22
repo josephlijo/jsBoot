@@ -89,3 +89,22 @@ Sample code about [composition](https://codepen.io/LJdev/pen/vdrzxp?editors=0011
 ![Redux Reducers](Docs/Images/ReduxReducers_Composition.PNG?raw=true)
 - As Redux users what we need to care about is `identify the State` and `write Reducers correctly` and the **Redux store will manage the state**
  
+ ## Planning / Structuring a Redux App
+ - First and foremost, we need to understand the `Actions` and the `Initial State` of the application. 
+ - For example, if we are searching for users and their repositories and gist's in github.com and adding specific users / repositories to our internal database (local storage), we can come up with a sample Action set like: 
+ ```
+const Actions = {
+    SEARCH_USER: 'SEARCH_USER',
+    FILTER_REPOSITORIES: 'FILTER_REPOSITORIES',
+    SAVE_USER: 'SAVE_USER',
+    SAVE_REPOSITORY: 'SAVE_REPOSITORY'
+};
+ ```
+Initial state can be something like: 
+```
+return {
+    savedUsers: [],
+    savedRepos: [],
+    defaultSuggestions: ['Scott Hanselman', 'David Fowler', 'Damien Edwards']
+}
+```
