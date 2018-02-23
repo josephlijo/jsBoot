@@ -1,11 +1,11 @@
 # React
-- React [basics](/react)
+- React [basics](./react)
 
 # Redux
-- Redux [basics](/redux)
+- Redux [basics](./redux)
 
 # Building Enterprise Appilcation with React 
-The [section](/react-enterprise) covers topics like:
+The [section](./react-enterprise) covers topics like:
 - [Electrode](http://www.electrode.io/docs/what_is_electrode.html)
 - Server side rendering - [SSR](https://redux.js.org/recipes/server-rendering)
 - Progressive Web Apps - [PWA](https://developers.google.com/web/progressive-web-apps/checklist)
