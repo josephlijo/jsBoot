@@ -34,7 +34,7 @@ For example,
 - In our early days, we used to split our JavaScript files to separate concerns - here we used to think about `namespaces` and assumed that it worked correct if loaded in correct order - starting with `window` then `window.App` (say in App.js), and then `window.App.Utils` (in App.Utils.js) - which meant that we should load these file in specific order - first `App.js`, then `App.Utils.js` etc..  
 With project becoming big - it became a nightmare to manage this. Solutions? 
 - Here what we tried to achieve was `independent modules` which don't conflict the global `window` object but precaution was needed to load them in right order. `Scope` is important and **here scope can be maintained without conflicts only if file orders were treated correctly**. 
-- Solutions? [Prototype pattern](https://weblogs.asp.net/dwahlin/techniques-strategies-and-patterns-for-structuring-javascript-code-the-prototype-pattern) to have make use of `JavaScript prototype inheritance` OR [Revealing Module Pattern](https://weblogs.asp.net/dwahlin/techniques-strategies-and-patterns-for-structuring-javascript-code-revealing-module-pattern) given a correct `scope` to reveal the module is provided. Again issues like - **injecting and hijacking** and **scope issues** respectively with these patterns. 
+- Solutions? [Prototype pattern](https://weblogs.asp.net/dwahlin/techniques-strategies-and-patterns-for-structuring-javascript-code-the-prototype-pattern) to make use of `JavaScript prototype inheritance` OR [Revealing Module Pattern](https://weblogs.asp.net/dwahlin/techniques-strategies-and-patterns-for-structuring-javascript-code-revealing-module-pattern) given a correct `scope` to reveal the module is provided. Again issues like - **injecting and hijacking** and **scope issues** respectively with these patterns. 
 - Moving ahead, the need of **Module System**
 - Till ES2015 (ES6), we had no module system. Btw, what is Module system? 
 - **Module System** allows us split code into **modules** where each module takes care of a *specific functionality* - A module can *require in* or *include* or *use* dependent modules using ES6 Modules (and libraries like Common.js prior to that) and can *export* the module to be used by other modules. Using module system, we can bring in abstraction, encapsulation and expose of only the ones we need to. 
@@ -71,8 +71,7 @@ console.log(myApp().name);
 })
 ```
 **ES6 Module System**
-- ES5 has [`export` feature](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export)
-- ES6 has [`import` feature](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
+- ES6 has [`export` feature](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export) and [`import` feature](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
 
 # Now, What is **Webpack** again?
 
