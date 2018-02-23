@@ -71,7 +71,7 @@ console.log(myApp().name);
 })
 ```
 **ES6 Module System**
-- ES6 has [`export` feature](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export) and [`import` feature](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
+- ES6 has [`export`](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export) and [`import`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) feature
 
 # Now, What is **Webpack** again?
 
@@ -84,3 +84,6 @@ console.log(myApp().name);
 - Webpack takes modules and generates static assets representing those modules. 
 - The bundler can be used from the **command line (CLI)** OR **can be configured using a config file named webpack.config.js**
  
+# Getting started
+
+- Read further [here](/webpack3-getting-started/README.MD) on getting started with webpack 3
