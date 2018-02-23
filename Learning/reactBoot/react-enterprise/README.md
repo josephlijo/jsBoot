@@ -34,3 +34,15 @@ During the installation process, it will ask you for the server framework to use
 - Use `ignite generate-app` to create a Electrode React application
 - It will create the folder structure for our React app
 - Run `clap dev` to start the server
+
+## From scratch
+There are many cases to consider when creating an application: 
+- The structure the folder and files should be organized for better maintainability
+- KISS and YAGNI should also be applied when including packages. Keep the dependency tree simple and eventually add up the needed. Also make sure not to include any packages that you don't need now. 
+- Think before hand about CI/ CD, for example: 
+    - Travis for build
+    - Docker for Deployment and delivery
+    - State management libraries - Redux, Mobx
+    - HTML, JavaScript, CSS preprocessors
+    - Module bundler - For example, webpack
+    - Task runners, execution - for example, xclap, grunt, gulp. 
