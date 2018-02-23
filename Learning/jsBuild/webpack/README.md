@@ -32,7 +32,7 @@ For example,
 
 ## What are Module System?
 - In our early days, we used to split our JavaScript files to separate concerns - here we used to think about `namespaces` and assumed that it worked correct if loaded in correct order - starting with `window` then `window.App` (say in App.js), and then `window.App.Utils` (in App.Utils.js) - which meant that we should load these file in specific order - first `App.js`, then `App.Utils.js` etc..  
-With project becoming big - it became a nightmare to manage this. Solutions? 
+With project becoming big - it became a nightmare to manage this.  
 - Here what we tried to achieve was `independent modules` which don't conflict the global `window` object but precaution was needed to load them in right order. `Scope` is important and **here scope can be maintained without conflicts only if file orders were treated correctly**. 
 - Solutions? [Prototype pattern](https://weblogs.asp.net/dwahlin/techniques-strategies-and-patterns-for-structuring-javascript-code-the-prototype-pattern) to make use of `JavaScript prototype inheritance` OR [Revealing Module Pattern](https://weblogs.asp.net/dwahlin/techniques-strategies-and-patterns-for-structuring-javascript-code-revealing-module-pattern) given a correct `scope` to reveal the module is provided. Again issues like - **injecting and hijacking** and **scope issues** respectively with these patterns. 
 - Moving ahead, the need of **Module System**

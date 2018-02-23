@@ -13,3 +13,4 @@ The [section](./react-enterprise) covers topics like:
     - [Service Workers](https://developers.google.com/web/fundamentals/primers/service-workers/)
     - [Web App Manifest](https://developers.google.com/web/fundamentals/web-app-manifest/)
     - [Push Notifications](https://developers.google.com/web/fundamentals/push-notifications/)
+    - [PRPL Pattern](https://developers.google.com/web/fundamentals/performance/prpl-pattern/)
