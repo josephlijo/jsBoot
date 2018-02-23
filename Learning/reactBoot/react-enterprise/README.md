@@ -46,3 +46,4 @@ There are many cases to consider when creating an application:
     - HTML, JavaScript, CSS preprocessors
     - Module bundler - For example, webpack
     - Task runners, execution - for example, xclap, grunt, gulp. 
+    - Tests - Jest, Mocha, Karma, Chai, Sinon etc.
