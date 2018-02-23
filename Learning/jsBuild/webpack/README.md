@@ -86,4 +86,4 @@ console.log(myApp().name);
  
 # Getting started
 
-- Read further [here](./webpack3-getting-started/README.MD) on getting started with webpack 3
+- Read further [here](./webpack3-getting-started) on getting started with webpack 3
