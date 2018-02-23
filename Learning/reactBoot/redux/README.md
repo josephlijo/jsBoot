@@ -2,6 +2,20 @@
 
 ## MVC, MVP, MVVM patterns
 
+**MVC Pattern**
+- MVC pattern separates the application concerns into three responsibilities. Models, Views, and Controllers.  
+*Model* holds or represents the data. It can be database represetation layer (via ORM), and Business logic at the data level. 
+*View* holds the presentation logic and everything the user directly interacts with. 
+*Controller* responds to the request from *View* and *action* the view request. This *Controller* action involves giving the *View* the right *Model* to work with. *Controller* is a [Mediator](https://en.wikipedia.org/wiki/Mediator_pattern) between *View* and the *Model* thus avoiding a tight coupling between the View and the Model. 
+- In MVC pattern there is a strong link between Model and the View, since View render based on the Model it has. Also, a model can be associated with multiple Views. For example, `Book Model` can be associated with `Author's Book View` and a `Library Book View`. 
+- If a Model is changed, all associated View should be informed of this change. View monitors this change using the [Observer pattern](https://en.wikipedia.org/wiki/Observer_pattern).
+
+**MVP Pattern**
+- In MVP the application is separated in three responsible areas - *Model*, *View*, and *Presenter*
+- Derived from *MVC* pattern replacing *Controller* by *Presenter*. Why? 
+
+**MVVM Pattern**
+
 ## Dealing with MVC
 - MVC controller pattern helps to seperate the concerns like data (Model), representation of the data (View) and the management of data between Model and View (Controller).
 - There are variations of MVC pattern like - MVP, MVVM patterns. 
@@ -108,3 +122,7 @@ return {
     defaultSuggestions: ['Scott Hanselman', 'David Fowler', 'Damien Edwards']
 }
 ```
+
+### Thanks and references
+- [MVC, MVP, MVVM Patterns](https://medium.com/@ankit.sinhal/mvc-mvp-and-mvvm-design-pattern-6e169567bbad)
+- [Learning Redux](https://www.linkedin.com/learning/learning-redux/build-your-first-reducer) by Alex Banks
