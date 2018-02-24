@@ -58,6 +58,62 @@ var func = function () {};
 - This gives us the ability to **pass function as arguments to other functions** and **return functions are result of a function** 
 - Advantages are flexibility and code reuse.  
 
+## Concepts
+
+**Higher-order functions**
+- Are functions that takes a function as argument, returns a function or both
+- In constrast with basic function that works with data, these functions work with other functions as well and hence the name - Higher-order functions. 
+```
+// Sample higher-order function 
+function getView(data, renderer) {
+	// Do something on data...
+	// Then call the `renderer` or default it
+	return renderer ? renderer(`Here is the requested view: ${data.viewName}`) : console.log("Here is the default view");
+}
+
+var requestData = {viewName: "index"}; 
+getView(requestData, function(message) {
+	console.log('------------------');
+	console.log(message);
+	console.log('------------------');
+});
+getView(requestData);
+```
+
+**Map, Filter, Reduce functions**
+- See the code sample below to understand each: 
+```
+// Array Map: Map is a higher-order function which creates a new array of data
+// The provided function is called against each element in the array
+// The new array contains the output this function call results in 
+var inputData = [1, 8, 22];
+var selfAdd = function (data) { return data + data; }
+var selfMultiply = function (data) { return data * data; }
+console.log("Self Addition result of", inputData, "is", inputData.map(selfAdd));
+console.log("Self Multiply result of", inputData, "is", inputData.map(selfMultiply));
+
+// Array Filter: Filter is a higher-order function which creates a new array of data
+// The provided function is called against each element in the array
+// The new array would be a filter of input array based on which element passes the test in the provided function
+var animalType = "elephant";
+console.log("The vowels in", animalType, "are", animalType.split('').filter(function (element) {
+	return ['a', 'e', 'i', 'o', 'u'].includes(element);
+}));
+
+// Array Reduce: Reduce is a higher-order function which gets a single value
+// The provided function is called against each element in the array
+// The provided function gets an accumulator of the previous call
+// The result depends on how the provided function uses the accumulator 
+var requiredSkills = { "C": 20, "C++": 30, "Agile": 10, "JavaScript": 40 };
+var candidateSkills = ["C", "Agile"];
+var candidateScore = candidateSkills.reduce((accumulator, currentValue) => {
+	return Object.keys(requiredSkills).includes(currentValue) ?
+		accumulator + requiredSkills[currentValue] : 0;
+}, 5); // initial value of 5 as bonus for applying :) 
+//Read more: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce?v=a
+console.log("The candidate with skills", candidateSkills, "scored", candidateScore, "for", requiredSkills);
+```
+
 ## Lodash, the JavaScript library
 Lodash contains a lot of useful methods for functional programming.  
 It can be installed using `npm install -g lodash`
