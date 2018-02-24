@@ -141,7 +141,7 @@ console.log("Does the candidate with skills -", candidateSkills, "- has all the 
 
 ## Lodash, the JavaScript library
 Lodash contains a lot of useful methods for functional programming.  
-It can be installed using `npm install -g lodash`
-
+It can be installed using `npm install -g lodash`  
+It has methods to do - map, filter, reduce, etc.
 
 
