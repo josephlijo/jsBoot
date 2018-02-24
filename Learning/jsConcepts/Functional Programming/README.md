@@ -81,7 +81,8 @@ getView(requestData);
 ```
 
 **Map, Filter, Reduce functions**
-- See the code sample below to understand each: 
+- Map is used to map each element to a new one.
+- Using the functional constructs, it helps avoid the usage of *programmatically creating new array*, *looping over an existing one using for each*, *pushing a calculated value to the new array* and thus reducing bugs, and increasing code-reuse. 
 ```
 // Array Map: Map is a higher-order function which creates a new array of data
 // The provided function is called against each element in the array
@@ -91,7 +92,9 @@ var selfAdd = function (data) { return data + data; }
 var selfMultiply = function (data) { return data * data; }
 console.log("Self Addition result of", inputData, "is", inputData.map(selfAdd));
 console.log("Self Multiply result of", inputData, "is", inputData.map(selfMultiply));
-
+```
+- Filter is used to filter elements based on some criteria
+```
 // Array Filter: Filter is a higher-order function which creates a new array of data
 // The provided function is called against each element in the array
 // The new array would be a filter of input array based on which element passes the test in the provided function
@@ -99,7 +102,9 @@ var animalType = "elephant";
 console.log("The vowels in", animalType, "are", animalType.split('').filter(function (element) {
 	return ['a', 'e', 'i', 'o', 'u'].includes(element);
 }));
-
+```
+- Reduce is used to reduce a set of elements to a single value 
+```
 // Array Reduce: Reduce is a higher-order function which gets a single value
 // The provided function is called against each element in the array
 // The provided function gets an accumulator of the previous call
@@ -112,6 +117,26 @@ var candidateScore = candidateSkills.reduce((accumulator, currentValue) => {
 }, 5); // initial value of 5 as bonus for applying :) 
 //Read more: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce?v=a
 console.log("The candidate with skills", candidateSkills, "scored", candidateScore, "for", requiredSkills);
+```
+
+**Some and every**
+- *Some* and *every* are similar as *filter*, but instead of returning an array of values, it **returns true / false**. 
+- **Some** checks if at least one element in an array passes the test implemented by the provided function
+- **Every** checks if all elements in an array passes the test implemented by the provided function 
+```
+// Array.some()
+var name = 'johny';
+console.log("Does the provided name -", name, "- has vowels?", name.split('').some(function (element) {
+	return ['a', 'e', 'i', 'o', 'u'].includes(element.toLowerCase());
+}));
+
+// Array.every()
+var candidateSkills = ['C', 'JavaScript'];
+var requiredSkills = ['C', 'C++', 'JavaScript'];
+console.log("Does the candidate with skills -", candidateSkills, "- has all the required skill (", requiredSkills, ")?",
+	candidateSkills.every(function (currentElement) {
+		return requiredSkills.includes(currentElement);
+	}));
 ```
 
 ## Lodash, the JavaScript library
