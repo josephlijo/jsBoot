@@ -2,9 +2,9 @@
 
 ## What is functional programming?  (FP)
 Functional programming is the concept of building software by following core concepts:  
-- **functions** are the first-class citizens
 - **data** and **function which operates on it** are kept separate
 - Avoid **state change** and **mutable data**
+- **functions** are the first-class citizens
 
 **Keeping data and functions separate**
 - In OOP we encapsulate the data in a class and expose of the functions to operate with them - change the state or get the data
@@ -34,8 +34,29 @@ function increaseAge(data) {
 ```
 
 **Avoid state change and mutable data** 
+- i.e. Avoid changing the value of `data`, instead, copy it or create new data out of it. 
+```
+// instead of 
+var greeting = "Hello";
+greeting = greeting + ", world";
+
+// use
+var greeting = "Hello";
+var worldGreeting = greeting + ", world";
+```
+- Advantages of this approach is that we don't have to track the changes made over time to the `data` to trace an error for example. 
+- We can easily identiy a *point in time* our software behaves unexpectedly because of data
+- The above helps performance benefits 
 
 **`functions` are first-class citizens**
+- This essentially means that *functions should be also assignable to a variable* like we do for number or string types. For example: 
+```
+var num = 1;
+var str = "Hello";
+var func = function () {};
+```
+- This gives us the ability to **pass function as arguments to other functions** and **return functions are result of a function** 
+- Advantages are flexibility and code reuse.  
 
 ## Lodash, the JavaScript library
 Lodash contains a lot of useful methods for functional programming.  
