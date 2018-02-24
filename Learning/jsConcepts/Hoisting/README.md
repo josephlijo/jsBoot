@@ -1,11 +1,14 @@
 # Hoising in JavaScript
 
-## Understanding the variables and functions
+## Understanding the variables, functions, and class
 
 - Variable declaration: `var a;`
 - Variable definition: `a = 22;`
 - Function declaration: `function greet() { console.log("Hello, human!"); }`
 - Function expression: `var greet = function() { console.log("Hello, world!"); }`
+- Class declaration (statement): `class Greeter { constructor() {} greet() { console.log("Hello, world!"); } }` - creates a new class with a given name using prototype-based inheritance 
+- Class expressions - named: `var Greeter = class Greeter { ... }` 
+- Class expressions - unnamed: `var Greeter = class { ... }` 
 
 ## Hoisting 
 - Hoisting means "lifting up" some statements towards the top
@@ -41,3 +44,6 @@ var greet; // undefined
 greet(); // TypeError: greet is not a function
 greet = function() { console.log("Hello, world!"); }
 ```
+
+## Hoisting in Classes
+TODO:// 
