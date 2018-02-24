@@ -80,6 +80,15 @@ getView(requestData, function(message) {
 getView(requestData);
 ```
 
+**Pure functions**
+TODO://
+
+**Partial application**
+TODO://
+
+**Recursion**
+TODO://
+
 **Map, Filter, Reduce functions**
 - Map is used to map each element to a new one.
 - Using the functional constructs, it helps avoid the usage of *programmatically creating new array*, *looping over an existing one using for each*, *pushing a calculated value to the new array* and thus reducing bugs, and increasing code-reuse. 
