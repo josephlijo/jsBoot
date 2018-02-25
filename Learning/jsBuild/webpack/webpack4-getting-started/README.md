@@ -98,3 +98,36 @@ For example:
 - Do `npm run build` to run the build script and check the generated `bundle.js` file to see how our ES6 features are getting transformed  
 
 Now we have enabled babel-loader to check all `.js` files except those in node_modules folder and the babel-loader will transpile our JavaScript to be compatible to specific preset we specified. 
+
+**Using Babel Presets**
+- Let's first have a look at tc39 - the ECMAScript committee which [proposes](https://github.com/tc39/proposals) what should be included in new version. 
+- Each proposals go through different stages like 0, 1, 2 etc. 
+- If we want to include a feature in stage we can install it using `npm install babel-loader-stage-0 --save-dev` which then means that we can now instruct babel to use features in stage 0 to transpile to stage 3 (accepted proposal)
+- Then we need to add it to the `babel-loader options` - `presets: ['env', 'stage-0']` and also in `.babelrc` file
+
+**Using React with serve**
+- We can use the babel preset for react when working with React t convert JSX to JavaScript
+- Do `npm install babel-preset-react --save-dev` 
+- We need to install React and React DOM - `npm install react react-dom --save`
+- In order to run a server to host our application, we can install `server` globally - `npm install serve -g`
+- Add React code in index.js to see React in action. For example, 
+```
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+ReactDOM.render(React.createElement('div', null, 'Hello from React'), document.getElementById('root'));
+```
+- Make sure you have a section in *index.html* to render the react component: `<div id='root'></div>`
+- Now to run the *server* to host our application, change the build script in package.json to be `webpack && serve`
+- Do `npm run build` and `serve` will serve our application. 
+
+**Using JSX and Babel-loader for React**
+- Now, let's change our content in `index.js` to be in JSX format
+```
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+ReactDOM.render(<div>Hello from React!</div>, document.getElementById('root'));
+```
+- JSX will not work unless we use the `babel-preset-react`. To do that, we need to go to `webpack.config.js` and include `react` preset: `presets: ['env', 'stage-0','react']`. Do the same in .babelrc file. 
+- Do `npm run build` to see this in action
