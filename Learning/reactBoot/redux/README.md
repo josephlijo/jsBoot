@@ -33,7 +33,7 @@
 - In Flux, data flows in one direction.
 - Changes are initiated with `Actions` - which are objects that describes what should change about the data.
 - `Actions` are dispatched with a `Dispatcher` - which are objects which sends the data to the appropriate `Store`.
-- The `Store` holds the data. *The might be like `Models`, but they are not the same*  
+- The `Store` holds the data. *They might be like `Models`, but they are not the same*  
 `Store` is responsible for updating OR changing its data. 
 - Finally when `Store` updates the data, that change updates the `View`; The screen changes with the new representation. 
 - Now when the user interacts with the `View`, a new `Action` is created and the process starts all over again. 
