@@ -56,3 +56,45 @@ Let's set `script.build` to `webpack`
 - Webpack plugins mostly work at *bundle* level and usually work at the end of the bundle generation process.  
 - Plugins can also modify how bundles themselves are created. 
 - Plugins can integrate into webpack by registering hooks within webpack build system and access (or modify) the compiler behavior. 
+
+## Webpack Loaders :: In action
+- We include a new property `module.rules` in our `webpack.config.js` file: 
+```
+module: {
+	rules: [...]
+}
+```
+- **Rules** is an array which takes in object which contains **test** which is a regular expression which tell webpack to check for in our assets. We can use **exclude** property to skip specific location / files. Specify the loader to use using the **use** property which takes in an object which contains details about the loader. 
+- In **use** object we specify the **loader** along with **options** specific to the loader
+
+**Working with babel-loader**
+
+- Sample to include babel-loader to check for `.js` files would be: 
+```
+module: {
+		rules: [
+			{
+				test: /.js$/,
+				exclude: /(node_modules)/,
+				use: {
+					loader: 'babel-loader',
+					options: {
+						presets: ['env'] 
+					}
+				}
+			}
+		]
+	}
+```
+- Include the `babel` loader modules using `npm install babel-loader bable-core babel-preset-env --save-dev` 
+- We need to create `.babelrc` file at the root.  
+It is the configuration file for babel where *we specify which preset to use* 
+For example: 
+```
+{
+	'presets': ['env']
+}
+```
+- Do `npm run build` to run the build script and check the generated `bundle.js` file to see how our ES6 features are getting transformed  
+
+Now we have enabled babel-loader to check all `.js` files except those in node_modules folder and the babel-loader will transpile our JavaScript to be compatible to specific preset we specified. 
