@@ -154,3 +154,29 @@ devServer: {
 - Since webpack-dev-server runs from `dist` folder, lets copy the `index.html` to `dist` and adjust the `bundle.js` location in script tag
 - Lets add a new script section named `dev` in `package.json` file: `"dev": "webpack-dev-server"`
 - Run the app using `npm run dev` and navigate to localhost and port `http://localhost:8080` to see if webpack dev server serves the application. 
+
+## Webpack plugins :: In action
+
+**Code-splitting**
+- Webpack helps us split our code - For example, if we have *contact* and *about* modules - we can tell the webpack to created separate bundle for each and only load the bundle which is requested. 
+- Additionaly, we can use webpack to create bundles for shared code and for vendor code. 
+- Let's create a **about** and **contact** sections for our app by creating *about.html* and *contact.html* and backing JavaScript files *about.js* and *contact.js*  
+Reference code: *webpack4-getting-started\webpack-code-splitting*
+
+**Using the commons chunk bundle**
+- A `webpack loader` gives instruction during the build process on 
+- `webpack plugins` are webpack classes which works on the bundle. 
+- For example, `commons chunk plugin` will look for reused code and it will create a separate bundle that has common code. It will load the common code into the page first and then load in specific page code after that. 
+- Can be used to separate `vendor` specific details and app specific details
+
+**Using HTML webpack plugin**
+- This [plugin](https://webpack.js.org/plugins/html-webpack-plugin/) is going to generate an HTML file that links to the bundle. 
+- Install it using `npm install html-webpack-plugin --save-dev`
+
+**Uglify JS webpack plugin**
+- [UglifyjsWebpackPlugin](https://webpack.js.org/plugins/uglifyjs-webpack-plugin/) wil minify all our code and it's going to generate a bundle that would be in one line.
+
+## References
+- [Webpack](https://webpack.js.org/)
+- [Webpack loaders](https://webpack.js.org/loaders/)
+- [Webpack plugins](https://webpack.js.org/plugins/) 
