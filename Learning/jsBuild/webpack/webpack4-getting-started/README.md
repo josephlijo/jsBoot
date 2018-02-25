@@ -121,7 +121,7 @@ ReactDOM.render(React.createElement('div', null, 'Hello from React'), document.g
 - Now to run the *server* to host our application, change the build script in package.json to be `webpack && serve`
 - Do `npm run build` and `serve` will serve our application. 
 
-**Using JSX and Babel-loader for React**
+**Using JSX and Babel-preset for React**
 - Now, let's change our content in `index.js` to be in JSX format
 ```
 import React from 'react';
@@ -131,3 +131,26 @@ ReactDOM.render(<div>Hello from React!</div>, document.getElementById('root'));
 ```
 - JSX will not work unless we use the `babel-preset-react`. To do that, we need to go to `webpack.config.js` and include `react` preset: `presets: ['env', 'stage-0','react']`. Do the same in .babelrc file. 
 - Do `npm run build` to see this in action
+
+**Working with Styles, CSS files and SCSS**
+- Check [style-loader](https://github.com/webpack-contrib/style-loader) and [css-loader](https://github.com/webpack-contrib/css-loader)
+- To use SCSS, check [sass-loader](https://github.com/webpack-contrib/sass-loader)
+
+**Working with images**
+- Check [url-loader](https://webpack.js.org/loaders/url-loader/) and [file-loader](https://webpack.js.org/loaders/file-loader/)
+
+## Webpack-dev-server
+- Webpack allows us to use a development server that will automatically reload your project when things change. 
+- It uses **Node.js Express Server** which uses the **webpack-dev-middleware** to serve a webpack bundle. 
+- To listen for changes it uses **Socket.io**
+- Install it using `npm install webpack-dev-server --save-dev`
+- We need to add `devServer` property object to the exported object in `webpack.config.js`
+```
+devServer: {
+	contentBase: path.join(__dirname, 'dist'),
+	port: 8080
+},
+```
+- Since webpack-dev-server runs from `dist` folder, lets copy the `index.html` to `dist` and adjust the `bundle.js` location in script tag
+- Lets add a new script section named `dev` in `package.json` file: `"dev": "webpack-dev-server"`
+- Run the app using `npm run dev` and navigate to localhost and port `http://localhost:8080` to see if webpack dev server serves the application. 
