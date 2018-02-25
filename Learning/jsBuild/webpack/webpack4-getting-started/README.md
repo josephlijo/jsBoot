@@ -179,4 +179,7 @@ Reference code: *webpack4-getting-started\webpack-code-splitting*
 ## References
 - [Webpack](https://webpack.js.org/)
 - [Webpack loaders](https://webpack.js.org/loaders/)
-- [Webpack plugins](https://webpack.js.org/plugins/) 
+- [Webpack plugins](https://webpack.js.org/plugins/)
+
+## Credits
+- [Learning Webpack 3](https://www.linkedin.com/learning/learning-webpack-3) 
