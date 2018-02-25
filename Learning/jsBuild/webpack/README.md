@@ -31,7 +31,7 @@ For example,
 - We need to use a **Module System**
 
 ## What are Module System?
-- In our early days, we used to split our JavaScript files to separate concerns - here we used to think about `namespaces` and assumed that it worked correct if loaded in correct order - starting with `window` then `window.App` (say in App.js), and then `window.App.Utils` (in App.Utils.js) - which meant that we should load these file in specific order - first `App.js`, then `App.Utils.js` etc..  
+- In our early days, we used to split our JavaScript files to separate concerns - here we used to think about *namespaces*,(JavaScript objects) and assumed that it worked correct if loaded in correct order - starting with `window` then `window.App` (say in App.js), and then `window.App.Utils` (in App.Utils.js) - which meant that we should load these file in specific order - first `App.js`, then `App.Utils.js` etc..  
 With project becoming big - it became a nightmare to manage this.  
 - Here what we tried to achieve was `independent modules` which don't conflict the global `window` object but precaution was needed to load them in right order. `Scope` is important and **here scope can be maintained without conflicts only if file orders were treated correctly**. 
 - Solutions? [Prototype pattern](https://weblogs.asp.net/dwahlin/techniques-strategies-and-patterns-for-structuring-javascript-code-the-prototype-pattern) to make use of `JavaScript prototype inheritance` OR [Revealing Module Pattern](https://weblogs.asp.net/dwahlin/techniques-strategies-and-patterns-for-structuring-javascript-code-revealing-module-pattern) given a correct `scope` to reveal the module is provided. Again issues like - **injecting and hijacking** and **scope issues** respectively with these patterns. 
@@ -78,12 +78,12 @@ console.log(myApp().name);
 - Webpack is a **build tool** and **module bundler**
 - Webpack can be thought of as **specialized task runner** (for example, Grunt, and Gulp).
 - Webpack is **optimized to do one special task good which is processing input files into output files**
+- It takes all of our assets and converts them to a production ready bundle. All of our files are considered modules and we tell webpack to load those modules when we configure our project. 
 - Webpack **helps us follow a modular approach to development** 
 - In a *Module system* we write a module and *require in* all the dependent modules and use them in that file. 
 - Webpack helps modular development approach by taking module dependencies and generating a dependency graph. 
 - Webpack takes modules and generates static assets representing those modules. 
 - The bundler can be used from the **command line (CLI)** OR **can be configured using a config file named webpack.config.js**
  
-# Getting started
-
-- Read further [here](./webpack3-getting-started) on getting started with webpack 3
+# Dive deep 
+- Read further [here](./webpack4-getting-started) on getting started with webpack 4
