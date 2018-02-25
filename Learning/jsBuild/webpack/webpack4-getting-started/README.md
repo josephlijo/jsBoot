@@ -1,7 +1,8 @@
 # Webpack 4
 - Webpack is a **build tool** and **module bundler**
+- Webpack takes our assets and bundle them out based on the configuration we provide
 
-# Installation
+## Installation
 - Create a project directory, and do `npm init` to create the `package.json`.  
 Reference project: *./webpack4-getting-started/webpack-basic*
 - Install webpack to dev dependencies (as we don't need it for production) using `npm install webpack --save-dev`
@@ -46,3 +47,12 @@ Let's set `script.build` to `webpack`
 - Run `npm run watch` - we can see that the cursor sits in place and changes made to `index.js` is *bundled out* automatically. 
 
 ## Webpack Loaders
+- Webpack loaders work at the build stage or processing stage of the bundle to perform tasks like: 
+	- Transformation of files from one to another - SCSS to CSS for example, ES6,7, to ES5  (using Babel loader)
+	- Load files and images
+	- Deal with dialects
+
+## Webpack Plugins
+- Webpack plugins mostly work at *bundle* level and usually work at the end of the bundle generation process.  
+- Plugins can also modify how bundles themselves are created. 
+- Plugins can integrate into webpack by registering hooks within webpack build system and access (or modify) the compiler behavior. 
