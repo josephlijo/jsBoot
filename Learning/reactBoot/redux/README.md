@@ -1,6 +1,25 @@
 # Redux
 
-## MVC, MVP, MVVM patterns
+Redux is a JavaScript library which helps to manage our data in SPA and it helps us visualize how data flows through our application.  
+It is a predictable state container.  
+Redux is often used with React; but, Redux cannot be used with other JavaScript frameworks as well.  
+
+## What is a state? 
+Let's assume that we have a currency converter application. In this application the state can be visualized as an object:  
+```
+conversionModel = {
+    fromAmt: 3,
+    toAmt: 2.82,
+    fromCurr: 'USD',
+    toCur: 'EUR',
+    rate: 0.94
+}
+```
+It can be thought of as `model`.  
+
+Before we jump into more about Redux, let's look at why we came to Redux.  
+
+## Pattens: MVC, MVP, MVVM
 
 **MVC Pattern**
 - MVC pattern separates the application concerns into three responsibilities. Models, Views, and Controllers.  
@@ -87,7 +106,11 @@ var user = {
     - Same outcome if the function is called with same arguments  
     - No side-effects on memory or IO  
 Sample [code](https://codepen.io/LJdev/pen/XZYYvx?editors=0011)
+    - Only access local variables
 2. Immutability  
+    - For example, we have a state: `state = {name: 'John', points: 20}`; If we increase the point by mutating the state object then we will loose history. Immutability advices to make the object immutable. 
+    - Then how do we change the *state*? We can make *clone* or *make a copy* using `Object.assign` or `jQuery.extend`
+    - With immutability - we can *undo*, we can take *snapshots* of the state, *reload from URL* than refreshing, *time travel* to go back to, say, 3 steps back.  
 3. Higher order functions  
 4. Composition  (Output from one function becomes the input to another function)
 ```
