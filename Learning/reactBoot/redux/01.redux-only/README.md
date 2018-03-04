@@ -1,5 +1,6 @@
 Run `npm i` and `node app.js`  
-See the below code comment to understand the details:  
+Follow the below code to work with a `state`, `store` and `action`:  
+
 ```
 var redux = require('redux');
 
@@ -39,9 +40,11 @@ store.subscribe(() => {
 });
 
 // We have store and reducers
-// Time for "Action", let's dispatch it
+// Time for "Action", let's dispatch it - Publish it
 store.dispatch({type: 'INCREMENT'}); // state should 1
 store.dispatch({type: ''}); // no state change as there is no reducer to handle it
 store.dispatch({type: 'INCREMENT'}); // state should be 2
 store.dispatch({type: 'DECREMENT'}); // state should be 2 as our reducers don't action this type as yet
+
+// We can see it is following a pub-sub pattern; we can subscribe to events that are published via dispatch
 ```
