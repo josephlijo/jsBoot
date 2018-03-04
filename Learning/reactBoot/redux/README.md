@@ -2,7 +2,7 @@
 
 Redux is a JavaScript library which helps to manage our data in SPA and it helps us visualize how data flows through our application.  
 It is a predictable state container.  
-Redux is often used with React; but, Redux cannot be used with other JavaScript frameworks as well.  
+Redux is often used with React; but, Redux can be used with other JavaScript frameworks as well.  
 
 ## What is a state? 
 Let's assume that we have a currency converter application. In this application the state can be visualized as an object:  
@@ -105,8 +105,8 @@ var user = {
 1. Pure functions  
     - Same outcome if the function is called with same arguments  
     - No side-effects on memory or IO  
-Sample [code](https://codepen.io/LJdev/pen/XZYYvx?editors=0011)
-    - Only access local variables
+    - Only access local variables        
+    Sample [code](https://codepen.io/LJdev/pen/XZYYvx?editors=0011)
 2. Immutability  
     - For example, we have a state: `state = {name: 'John', points: 20}`; If we increase the point by mutating the state object then we will loose history. Immutability advices to make the object immutable. 
     - Then how do we change the *state*? We can make *clone* or *make a copy* using `Object.assign` or `jQuery.extend`
