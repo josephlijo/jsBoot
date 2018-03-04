@@ -1,5 +1,5 @@
 Run `npm i` and `node app.js`  
-Follow the below code to work with a `state`, `store` and `action`:  
+Follow the below code to work with a `state`, `store` and `action` and see how **we can publish and subcribe (pub/sub) to actions** :  
 
 ```
 var redux = require('redux');
