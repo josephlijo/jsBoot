@@ -1,0 +1,24 @@
+{
+  "name": "redux-only",
+  "version": "1.0.0",
+  "description": "Redux only JavaScript app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Redux",
+    "React",
+    "JavaScript",
+    "Functional",
+    "Programming"
+  ],
+  "author": "ljnotes",
+  "license": "ISC",
+  "dependencies": {
+    "npm": "^5.7.1"
+  },
+  "devDependencies": {
+    "redux": "^3.7.2"
+  }
+}

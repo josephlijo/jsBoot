@@ -146,6 +146,10 @@ return {
 }
 ```
 
+## More
+
+- [Redux only app](./01.redux-only)
+
 ### Thanks and references
 - [MVC, MVP, MVVM Patterns](https://medium.com/@ankit.sinhal/mvc-mvp-and-mvvm-design-pattern-6e169567bbad)
 - [Learning Redux](https://www.linkedin.com/learning/learning-redux/build-your-first-reducer) by Alex Banks
