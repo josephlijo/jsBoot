@@ -12,10 +12,19 @@ class GoalScorer extends React.Component {
         this.decrement = this.decrement.bind(this);
     }
 
+    componentDidMount() {
+        store.subscribe(() => {
+            console.log('state changed');
+            this.setState({}); // This is not correct though it will rerender.
+        });
+    }
+
     increment() {
+        store.dispatch({type: 'INCREMENT'});
     }
 
     decrement() {
+        store.dispatch({type: 'DECREMENT'});
     }
 
     render() {
