@@ -17,7 +17,9 @@ var defaultState = counter;
 // Sample reducer: which manages the state (current goal status) based on an action (goal scored)
 var incrementer = function(state = defaultState, action) {
 	if (action.type == 'INCREMENT') {
-		state = ++state;
+		// Not good: Mutating state
+		// state = ++state;
+		return state + 1;
 	}
 	return state;
 };
