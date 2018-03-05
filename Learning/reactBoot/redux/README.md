@@ -149,6 +149,8 @@ return {
 ## More
 
 - [Redux only app](./01.redux-only)
+- [Plain Redux with React Component](./02.plain-redux-with-react)
+- [Using react-redux](./03.using-react-redux)
 
 ### Thanks and references
 - [MVC, MVP, MVVM Patterns](https://medium.com/@ankit.sinhal/mvc-mvp-and-mvvm-design-pattern-6e169567bbad)
