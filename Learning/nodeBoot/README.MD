@@ -83,4 +83,7 @@ Doing so it protects the scope of the variables inside that module file.
   // Module code actually lives in here
   });
   ```
-  - Calls this function, where `require` to this function is the one created in step 1. 
+  - Calls this function, where `require` to this function is the one created in step 1.
+
+# References
+- [Mastering Node.js modules and packages](https://mva.microsoft.com/en-US/training-courses/Mastering-Node-js-Modules-and-Packages-with-Visual-Studio-Code-13921?l=8UwHgkzbB_6201937557#)
