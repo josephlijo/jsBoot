@@ -18,6 +18,13 @@
   - **node_modules** folder inside of the application (it will check one level up from where we are for this folder)
   - **NODE_PATH** environment variable to and check for globally installed packages
   - Historical directories - **$HOME/.node_modules** and **$HOME/.node_libraries**
+- Before executing the code in a module, it wraps the code inside a function which looks like below:
+```
+(function(exports, require, module, __filename, __dirname) {
+// Module code actually lives in here
+});
+```
+Doing so it protects the scope of the variables inside that module file.
 - **How do we define interface for our modules?**
   - `module.exports` is used to define our interface
   - `module` is defined via closure during the compile process
@@ -62,10 +69,18 @@
   - What `_load()` does is:
     - It check `cache` for a copy
     - If not in `cache`, a new module is created
-    - Saves it to the cache
+    - Saves it to the `cache`
     - Call `_load()` with the given file name
-    - Compile the file contents
+    - **Compile** the file contents
     - If there was an error, delete from cache
     - return `module.exports`
 - **How does the compile work?**
-  - 
+  - It creates a standalone `require` function that calls `module.require` function
+  - Attaches other helper methods to `require`
+  - Wraps the contents of the file inside the function:
+  ```
+  (function(exports, require, module, __filename, __dirname) {
+  // Module code actually lives in here
+  });
+  ```
+  - Calls this function, where `require` to this function is the one created in step 1. 
