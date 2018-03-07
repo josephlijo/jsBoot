@@ -1,7 +1,7 @@
 # What is Node.js?
 - Helps us build backend applications using JavaScript
 
-# Why Node.js is using JavaScript?
+## Benefits of using Node.js?
 - We can write both front-end and back-end logic using JavaScript by using Node.js
 - It helps us avoid repetitive models and mappers
 
@@ -37,3 +37,35 @@
      'C:\\node_modules' ] }
   ```
   - As we can see, `module`, `module.exports`, `module.id`, etc. are available to be used from inside the JavaScript file.
+- **How does `require` work?**
+  - if we do a `console.log(require)` inside a JavaScript file (say, test.js) we can see that it is a function:
+  ```
+  { [Function: require]
+  resolve: { [Function: resolve] paths: [Function: paths] },
+  main:
+   Module {
+     id: '.',
+     exports: {},
+     parent: null,
+     filename: 'C:\\user_name\\temp\\test.js',
+     loaded: false,
+     children: [],
+     paths:
+      [ 'C:\\user_name\\temp\\node_modules',
+        'C:\\user_name\\node_modules',
+        'C:\\node_modules' ] },
+  extensions: { '.js': [Function], '.json': [Function], '.node': [Function] },
+  cache:
+   { ... }
+  ```
+  - When we call `require()`, it wraps an internal method in `module` called `module._load`
+  - What `_load()` does is:
+    - It check `cache` for a copy
+    - If not in `cache`, a new module is created
+    - Saves it to the cache
+    - Call `_load()` with the given file name
+    - Compile the file contents
+    - If there was an error, delete from cache
+    - return `module.exports`
+- **How does the compile work?**
+  - 
