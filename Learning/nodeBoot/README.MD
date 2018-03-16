@@ -85,5 +85,13 @@ This is how we also get the *functions and objects* like **exports**, **require*
   ```
   - Calls this function, where `require` to this function is the one created in step 1.
 
+## Reading data
+- Check the reference [code](./Samples/02.DataReader.js)
+- We need to bring in the file system node module (fs)
+- Node handles the operation asynchronously, so we pass in the *data file* along with *callback*
+```
+var fs = require('fs');
+fs.readFile('./customerData.json', function(error, response){... }
+```
 # References
 - [Mastering Node.js modules and packages](https://mva.microsoft.com/en-US/training-courses/Mastering-Node-js-Modules-and-Packages-with-Visual-Studio-Code-13921?l=8UwHgkzbB_6201937557#)
