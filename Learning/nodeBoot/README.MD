@@ -85,15 +85,14 @@ This is how we also get the *functions and objects* like **exports**, **require*
   ```
   - Calls this function, where `require` to this function is the one created in step 1.
 
-## Working with file system :: Reading data
-- Check the reference [code](./Samples/02.DataReader.js)
+## Working with file system :: Reading and writing data
 - We need to bring in the file system node module (fs)
-- Node handles the operation asynchronously, so we pass in the *data file* along with *callback*
+- Node handles the operation asynchronously, so we pass in the *data file* along with *callback*. Reference [code](./Samples/02.DataReader.js)
 ```
 var fs = require('fs');
 fs.readFile('./customerData.json', function(error, response){... }
 ```
 - We could install the `nodemon` module which will listen to file changes and run the code using `nodemon .\02.DataReader.js`
-
+- To write data, we use the `fs` method: `fs.writeFile`. See the reference [code](./Samples/02.DataWriter.js)
 # References
 - [Mastering Node.js modules and packages](https://mva.microsoft.com/en-US/training-courses/Mastering-Node-js-Modules-and-Packages-with-Visual-Studio-Code-13921?l=8UwHgkzbB_6201937557#)
