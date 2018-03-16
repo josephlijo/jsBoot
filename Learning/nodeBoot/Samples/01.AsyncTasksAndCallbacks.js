@@ -7,7 +7,7 @@ var fs = require('fs'); // File system
 const responseData = fs.readdirSync('c:/');
 console.log(responseData);
 
-console.log('Sync read of directory compled');
+console.log('Sync read of directory completed!');
 
 // Async
 fs.readdir('c:/', function(err, resp) {

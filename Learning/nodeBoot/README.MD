@@ -5,11 +5,9 @@
 - We can write both front-end and back-end logic using JavaScript by using Node.js
 - It helps us avoid repetitive models and mappers
 
-# Core concepts
-
 ## Modules
 - Is a JavaScript file which is used to group similar and re-usable functionality
-- Module exposes of this re-usable functionality via `exporting`
+- Module exposes this re-usable functionality via `exporting`
 - The consumer modules can use it by `importing` them
 - Only things that are `exported` are accessible outside of that module which is the primary difference between a module and a JavaScript file
 - We consume modules using `require`; for example, `var path = require('path');` and now `path` module is available in the file that we have *required*.
@@ -24,7 +22,9 @@
 // Module code actually lives in here
 });
 ```
-Doing so it protects the scope of the variables inside that module file.
+Doing so it protects the scope of the variables inside that module file.  
+This is how we also get the *functions and objects* like **exports**, **require**, **module**, **__filename**, and **__dirname**
+
 - **How do we define interface for our modules?**
   - `module.exports` is used to define our interface
   - `module` is defined via closure during the compile process
@@ -72,7 +72,7 @@ Doing so it protects the scope of the variables inside that module file.
     - Saves it to the `cache`
     - Call `_load()` with the given file name
     - **Compile** the file contents
-    - If there was an error, delete from cache
+    - If there is an error, delete from cache
     - return `module.exports`
 - **How does the compile work?**
   - It creates a standalone `require` function that calls `module.require` function
