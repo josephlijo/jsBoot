@@ -13,10 +13,10 @@ var messages = [
 
 // Serve static file
 app.use(express.static(__dirname));
+
 // Parse JSON and URL encoded data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
-
 
 // Add middleware function to the GET request for /messages
 app.get('/messages', (req, res) => {
