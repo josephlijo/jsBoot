@@ -85,7 +85,7 @@ This is how we also get the *functions and objects* like **exports**, **require*
   ```
   - Calls this function, where `require` to this function is the one created in step 1.
 
-## Working with file system :: Reading and writing data
+### Working with file system :: Reading and writing data
 - We need to bring in the file system node module (fs)
 - Node handles the operation asynchronously, so we pass in the *data file* along with *callback*. Reference [code](./Samples/02.DataReader.js)
 ```
@@ -94,5 +94,15 @@ fs.readFile('./customerData.json', function(error, response){... }
 ```
 - We could install the `nodemon` module which will listen to file changes and run the code using `nodemon .\02.DataReader.js`
 - To write data, we use the `fs` method: `fs.writeFile`. See the reference [code](./Samples/02.DataWriter.js)
-# References
+
+## Node.js Frameworks
+Some of the popular Node.js frameworks are:
+- [Express](https://expressjs.com/)  
+Express JS allows us to create a Web API.
+Express JS doesn't have bi-directional flow. Express allows the client to sent request to the server, but, the server cannot sent request to the client.
+[Socket.io](https://socket.io/) library can be used for bi-directional data flow. We can push notifications from the server to the client when an event happens.
+- [Sails](https://sailsjs.com/), an MVC framework for Node which also has ORM support
+- [Koa](http://koajs.com/)
+
+### References
 - [Mastering Node.js modules and packages](https://mva.microsoft.com/en-US/training-courses/Mastering-Node-js-Modules-and-Packages-with-Visual-Studio-Code-13921?l=8UwHgkzbB_6201937557#)
