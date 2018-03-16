@@ -1,0 +1,16 @@
+{
+  "customers": [
+    {
+      "name": "John Sander",
+      "workGroup": "Customer Relations"
+    },
+    {
+      "name": "Sarah Mark",
+      "workGroup": "Human Relations"
+    },
+    {
+      "name": "Peter Lewis",
+      "workGroup": "Manager"
+    }
+  ]
+}
