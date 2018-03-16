@@ -100,7 +100,8 @@ Some of the popular Node.js frameworks are:
 - [Express](https://expressjs.com/)  
 Express JS allows us to create a Web API.
 Express JS doesn't have bi-directional flow. Express allows the client to sent request to the server, but, the server cannot sent request to the client.
-[Socket.io](https://socket.io/) library can be used for bi-directional data flow. We can push notifications from the server to the client when an event happens.
+[Socket.io](https://socket.io/) library can be used for bi-directional data flow. We can push notifications from the server to the client when an event happens.  
+See [sample application](./nodeChatApp)
 - [Sails](https://sailsjs.com/), an MVC framework for Node which also has ORM support
 - [Koa](http://koajs.com/)
 
