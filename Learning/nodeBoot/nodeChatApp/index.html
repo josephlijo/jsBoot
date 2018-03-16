@@ -13,7 +13,9 @@
       <div class="jumbotron">
         <h1 class="display-4">Node Chat App:: Send Message</h1>
         <br />
-        <input type="text" id="senderInput" class="form-control" placeholder="Name" />
+        <input type="text" id="nameInput" class="form-control" placeholder="Name" />
+        <br />
+        <textarea id="messageInput" class="form-control" placeholder="Message"></textarea>
         <br />
         <button id="sendMessageBtn" class="btn btn-success">Send</button>
       </div>
@@ -25,20 +27,26 @@
       $(document).ready(function() {
         getMessages();
         $("#sendMessageBtn").click(function() {
-          var sender = $("#senderInput").val() || 'Foo';
-          var message = "Greeting!"
+          var sender = $("#nameInput").val();
+          var message = $("#messageInput").val()
           postMessage({sender: sender, text: message});
         });
       });
 
-      function postMessage(message) {
+      function displayMessage(message) {
         var msgElem = $("#messages");
         msgElem.append(`<h4>${message.sender}</h4><p>${message.text}</p>`);
       }
 
       function getMessages() {
         $.get('http://localhost:4200/messages', function(data) {
-          data.forEach((element, index, array) => postMessage(element));
+          data.forEach((element, index, array) => displayMessage(element));
+        });
+      }
+
+      function postMessage(message) {
+        $.post('http://localhost:4200/messages', message, function() {
+
         });
       }
     </script>
