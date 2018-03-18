@@ -115,3 +115,67 @@ socket.on('message', function(data){
 });
 ```
 - Run the app via `nodemon .\server.js` and open multiple instances to see the changes.
+
+# Using database with Node
+
+Use the branch - **node-express-socket-db** - to follow along.  
+There are SQL and NoSQL databases. SQL, Structured Query Language, based database have the data organized in a structured format. Whereas with NoSQL, the data doesn't need to follow a specific structure to fit into the database which gives the benefits of flexibility in data format.  
+With NoSQL database there is less upfront design cost but there might be hit to querying performance. 
+
+## Using MongoDB
+- MongoDB is a document-oriented database program which stores data as JSON-like document.
+- It is written in C, C++, and JavaScript.  
+
+## mLab or mongoDB Atlas
+- mLab is Database-as-a-Service cloud feature to host MongoDB databases. 
+- mongoDB Atlas is a software platform run by MongoDB itself. 
+
+## Using mLab
+- Create a new database. In the setup wizad, select the cloud provider of choice from AWS, GCP, or Azure. 
+- Select the plan type. For *free*, select *Sandbox* and hit *Continue*
+- Once the database is created, select it, and *add a user*
+
+## Using Mongoose to connect and modelling our MongoDB database
+- [Mongoosejs](http://mongoosejs.com/) can be used to connect to and model a MongoDB instance using JavaScript
+- Install Mongoose - `npm i -s mongoose`
+- Let's now require it in *server.js* - `var mongoose = require('mongoose')`
+- Connect to the database
+```
+var dbUrl = ""; // copy it from mlab.com
+mongoose.connect(dbUrl, function(error) {
+  console.log('MongoDB connection status', error);
+});
+```
+- To work with *mongoose*, we need to create a **model* and **schema** even though our database is NoSQL
+```
+var Message = mongoose.model('Message', {
+  sender: String,
+  text: String
+});
+```
+- In the `POST` section, save it to the database url: 
+```
+app.post('/messages', (req, res) => {
+
+  var message = new Message(req.body);
+  message.save((error) => {
+    if(error) {
+      res.sendStatus(500);
+    }
+    else {
+      messages.push(req.body); // This can be removed after next step
+      io.emit('message', req.body); // Emit a `message` event when a new message arrive
+      res.sendStatus(200);
+    }
+  });
+});
+```
+- Check the mlab URL for the database to see if data is saved
+- Now we can replace the *hardcoded* messages array to get data from MongoDB instance at mlab: 
+```
+app.get('/messages', (req, res) => {
+  Message.find({}, (error, messages) => {
+    res.send(messages);
+  });
+});
+```

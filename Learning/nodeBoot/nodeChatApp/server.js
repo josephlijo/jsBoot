@@ -5,15 +5,17 @@ var app = express();
 var http = require('http').Server(app);
 // Require in Socket.IO and pass it HTTP reference
 var io = require('socket.io')(http);
+// Mongoose for MongoDB
+var mongoose = require('mongoose');
 
-var messages = [
-  {
-    sender: 'John',
-    text: 'Hello from John'
-  }, {
-    sender: 'Martin',
-    text: 'Hi there John!'
-  } ];
+// Database URL
+var dbUrl = "mongodb://user:password@instance.mlab.com:12168/nodechatapp";
+
+// Database model
+var Message = mongoose.model('Message', {
+  sender: String,
+  text: String
+});
 
 // Serve static file
 app.use(express.static(__dirname));
@@ -24,19 +26,34 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 // Add middleware function to the GET request for /messages
 app.get('/messages', (req, res) => {
-  res.send(messages);
+  Message.find({}, (error, messages) => {
+    res.send(messages);
+  });
 });
 
 // Add middleware function to take in messages - POST
 app.post('/messages', (req, res) => {
-  messages.push(req.body);
-  io.emit('message', req.body); // Emit a `message` event when a new message arrive
-  res.sendStatus(200);
+
+  var message = new Message(req.body);
+  message.save((error) => {
+    if(error) {
+      res.sendStatus(500);
+    }
+    else {
+      io.emit('message', req.body); // Emit a `message` event when a new message arrive
+      res.sendStatus(200);
+    }
+  });
 });
 
 // Listen to the `connection` event
 io.on('connection', (socket) => {
   console.log('a connection has been established');
+});
+
+// Connect to the database
+mongoose.connect(dbUrl, function(error) {
+  console.log('MongoDB connection status', error);
 });
 
 // Listen to incoming requests at port 4200
