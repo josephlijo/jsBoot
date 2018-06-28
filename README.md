@@ -13,3 +13,7 @@ This repository holds samples to get started with JavaScript, JavaScript librari
 * [D3.js](./Learning/d3Boot)
 * [Webpack](./Learning/jsBuild/webpack)
 * [Testing](./Learning/jsTesting/TestingWithMocha) with Mocha, Chai, Sinon
+
+## Layouts
+* [Flexbox](./Layouts/flex)
+* [Grid](./Layouts/grid)

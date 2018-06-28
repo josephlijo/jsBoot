@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Webpack4 Starter Kit</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <script src="./app.js"></script>
+</head>
+
+<body>
+  <header>Questionnaire to success!</header>
+  <main>
+    <div class="q-container">
+      <!-- Question 1 -->
+      <div class="q-section">
+        <div class="q-section-item q-question">Q. What is your cats maiden name?</div>
+        <div class="q-section-item q-answers">
+          <input type="text">
+        </div>
+        <div class="q-section-item q-validation">This field is required :)</div>
+      </div>
+      <!-- Question 2 -->
+      <div class="q-section">
+        <div class="q-section-item q-question">Q. What is the first word that you remember saying after birth?</div>
+        <div class="q-section-item q-answers">
+          <select>
+            <option>Oh!</option>
+            <option>Who am I?</option>
+            <option>Facebook</option>
+          </select>
+        </div>
+        <div class="q-section-item q-validation">This field is required :)</div>
+      </div>
+      <!-- Question 3 -->
+      <div class="q-section">
+        <div class="q-section-item q-question">Q. Do you know how iceland looks like?</div>
+        <div class="q-section-item q-answers">
+          <div class="q-group">
+            <input type="radio" id="q-ans-y" name="q-ans">
+            <label for="q-ans-y">Yes</label>
+            <input type="radio" id="q-ans-n" name="q-ans">
+            <label for="q-ans-n">No</label>
+          </div>
+        </div>
+        <div class="q-section-item q-validation">This field is not required</div>
+      </div>
+      <div class="q-section" id="qSectionDecision"></div>
+    </div>
+  </main>
+  <footer>Copyright Details</footer>
+</body>
+
+</html>
