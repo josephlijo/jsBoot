@@ -21,7 +21,7 @@ Note: NVM doesn't support Windows.
 
 **Installing Mocha and running basic tests:**
 
-*Reference code: 01.FirstMochaTest*
+*Reference code: [01.FirstMochaTest](01.FirstMochaTest)*
 
 - Create a project by using `npm init` in a folder (01.FirstMochaTest) to create the `package.json`
 - Install Mocha globally using `npm install -g mocha`
@@ -95,7 +95,7 @@ So, the *assertions* are like *authorized.should.be.true* which translates well 
 
 **Testing Objects**
 
-*Reference code: 02.MochaAndChai\test\object.spec.js*
+*Reference code: [02.MochaAndChai\test\object.spec.js](02.MochaAndChai/test/object.spec.js)*
 
 - We can check objects (for example, *obj*) using `obj.should.equal` for reference check and `obj.should.deep.equal` for object value check 
 - Properties and values of an object (for example, *obj*) can also be checked using `obj.should.have.property('property-name')` and `obj.should.have.property('property-name').equal('property-value')`
